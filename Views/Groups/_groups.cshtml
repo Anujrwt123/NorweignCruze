@@ -1,0 +1,37 @@
+﻿@model IEnumerable<CruiseEntertainmentManagnmentSystem.Models.Groups>
+
+@using GridMvc.Html
+
+@Html.Grid(Model).Columns(columns =>
+                    {
+                        columns.Add()
+               .Encoded(false)
+               .Sanitized(false)
+               .SetWidth(30)
+               .Css("hidden-xs") //hide on phones
+               .RenderValueAs(c =>
+                @<div id="balloon" class="balloonClass">
+                    <b>
+                        <a href="#" onclick="goToCreate('/Groups/Edit/@c.ID')">Edit</a>
+                        @*@Html.ActionLink("Edit", "Edit", "Groups", new { id = c.ID }, new { @class = "modal_link" })*@
+                    </b>
+                </div>);
+                        columns.Add()
+                                   .Encoded(false)
+                                   .Sanitized(false)
+                                   .SetWidth(30)
+                                   .Css("hidden-xs") //hide on phones
+                                   .RenderValueAs(c =>
+                                    @<div id="balloon" class="balloonClass">
+                                        <b>
+                                            <a href="#" onclick="finalDelete('','@c.GroupName','/Groups/Delete?ID=@c.ID')">Delete</a>
+                                            @*@Html.ActionLink("Delete", "Delete", new { id = c.ID }, new { @class = "modal_link" })*@
+                                        </b>
+                                    </div>);
+                        columns.Add(c => c.GroupName).Titled("Group Name");
+                        columns.Add(c => c.Description).Titled("Description").Filterable(true);
+                    }).Sortable().Filterable().WithMultipleFilters()
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/Common.js"></script>
+<script src="~/Scripts/gridmvc.min.js"></script>

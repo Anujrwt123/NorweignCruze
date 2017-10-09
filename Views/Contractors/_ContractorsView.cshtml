@@ -1,0 +1,61 @@
+﻿@model IEnumerable<CruiseEntertainmentManagnmentSystem.ViewModel.ContractorViewModel>
+@using GridMvc.Html
+
+<style>
+   
+</style>
+
+@Html.Grid(Model).Columns(columns =>
+                    {
+                        columns.Add()
+               .Encoded(false)
+               .Sanitized(false)
+               .SetWidth(30)
+               .Css("hidden-xs") //hide on phones
+               .RenderValueAs(c =>
+                @<div id="balloon" class="balloonClass">
+                    <b>
+                        <a href="#" class="modal_link" onclick="goToCreate('/Contractors/Edit/@c.ID')">Edit</a>
+                        @*@Html.ActionLink("Edit", "Edit", "Contractors", new { id = c.ID }, new { @class = "modal_link" })*@
+                    </b>
+                </div>);
+                        columns.Add()
+                                   .Encoded(false)
+                                   .Sanitized(false)
+                                   .SetWidth(30)
+                                   .Css("hidden-xs") //hide on phones
+                                   .RenderValueAs(c =>
+                                    @<div id="balloon" class="balloonClass">
+                                        <b>
+                                            <a href="#" onclick="ContractorDelete('','@c.Name','/Contractors/Delete?ID=@c.ID')">Delete</a>
+                                            @*@Html.ActionLink("Delete", "Delete", new { id = c.ID }, new { @class = "modal_link" })*@
+                                        </b>
+                                    </div>);
+                        columns.Add()
+                                   .Encoded(false)
+                                   .Sanitized(false)
+                                   .SetWidth(30)
+                                   .Css("hidden-xs") //hide on phones
+                                   .RenderValueAs(c =>
+                                    @<div id="balloon" class="balloonClass">
+                                        <b>
+                                            <a href="#" onclick="getContract('@c.ID','/Contractors/GenerateAgreement',@c.AgreementType)" class="modal_link">Generate Contract</a>
+                                           @* @Html.ActionLink("Generate Contract","GenerateAgreement", "Contractors", new { id = c.ID }, new { @class = "modal_link" })*@
+                                        </b>
+                                    </div>);
+                        columns.Add(c => c.Name).Titled("Name");
+                        columns.Add(c => c.PositionName).Titled("Position").Filterable(true);
+                        // columns.Add(c => c.Description).Titled("Description");
+                        columns.Add(c => c.ShipName).Titled("Ship");
+                        columns.Add(c => c.InitiatedDate).Titled("Contract Initiated Date").Format("{0:dd/MM/yyyy}");
+                        columns.Add(c => c.Day_Rate).Titled("Rate per Day");
+                        columns.Add(c => c.Term).Titled("Term");
+                        columns.Add(c => c.EndDate).Titled("End Date").Format("{0:dd/MM/yyyy}");
+                        //columns.Add(c => c.PGroup).Titled("");
+                    }).Sortable().Filterable().WithMultipleFilters()
+
+
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/Common.js"></script>
+<script src="~/Scripts/gridmvc.min.js"></script>

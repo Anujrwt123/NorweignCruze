@@ -1,0 +1,100 @@
+﻿@model IEnumerable<CruiseEntertainmentManagnmentSystem.Models.CabinBooking>
+@{
+    ViewBag.Title = "Cabin Booking";
+}
+<h3 class="text-center page-heading" >@ViewBag.Title</h3>
+<br />
+
+<a href="#" onclick="goToCreate('CabinBookings/create')">Create New</a>
+
+@*@Html.ActionLink("Create New", "Create", null, new { @class = "create-link" })*@
+
+<div id="dataContainer">
+
+    @Html.Action("CabinBookings")
+
+</div>
+
+
+@*<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CabinNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Reservation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Position)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BookingType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BookingFrom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BookingTo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Hotel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fleet)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Requestor)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CabinNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Reservation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Position)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BookingType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BookingFrom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BookingTo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hotel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fleet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Requestor)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
+
+</table>*@

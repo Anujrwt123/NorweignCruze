@@ -1,0 +1,208 @@
+﻿<style>
+    .off {
+        background-color: beige;
+    }
+    .makelink{
+        cursor:pointer;
+    }
+</style>
+<script>
+
+   
+    $(document).ready(function () {
+
+        $(".date").datepicker({
+            changeMonth: true,//this option for allowing user to select month
+            changeYear: true //this option for allowing user to select from year range
+        });
+    });
+</script>
+
+<div style="padding-left:15px;padding-right:15px;" class="schedule" id="divSchedule">
+    <div class="section">
+        <div class='row text-right'><span id='closebtn' style='font-size: 19px;border: 1px solid #BFBFBF;margin-right: 3px;color: #A7A7A7;font-weight: bold;cursor:pointer'>&nbsp;X&nbsp;</span></div>
+        <div class="row">
+            <h3 class="popup-heading"> Schedule for Cruise: @ViewBag.CruiseName</h3>
+            <input type="hidden" id="CruiseID" value="@ViewBag.CruiseID" />
+            @*<input type="button" onclick="countTask()" value="count" />*@
+            @*@Html.DropDownList("Cruises")*@
+        </div>
+        <div class="row form-group">
+            <div class="col-md-2">
+                <label class="date" style="padding-top:10px">Schedule Start Date</label>
+            </div>
+            <div class="col-md-4" >
+                <input type="text" class="date" id="S_startDate" style="width:100%;" @*class="wrap-content"*@ />
+            </div>
+            <div class="col-md-2">
+                <label class="date" style="padding-top:10px">Schedule End Date</label> 
+            </div>
+            <div class="col-md-4">
+                <input type="text" class="date" id="S_endDate" style="width:100%;" @*class="wrap-content"*@ />
+            </div>
+        </div>
+        @*<div class="row">
+                <div class="col-md-3">
+                    NO. Of Days
+                </div>
+                <div>
+                    <input type="number" min="1" max="365" id="ndays" />
+                </div>
+            </div>*@
+
+    </div>
+    <div class="section">
+        <div class="row">
+           <p class="text">Tasks for the Schedule(Note:Should be in Order)</p> 
+            <p id="editText" class="edit-mode">
+                <span id="editTaskName" style="font-weight: 900;"></span> Task is in edit mode.
+                <span id="closeEdit" style="cursor:pointer;float:right;box-shadow: 2px 2px 2px #999292;" class="glyphicon glyphicon-remove"></span>
+            </p>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="row form-group">
+                    <div class="col-md-4">
+                        <label class="control-label">Task</label>
+                    </div>
+                    <div class="col-md-8">
+                        <div id="dropdown">
+                            <select id="cmbtask">
+                                <option value="-1">select--</option>
+                                @foreach (var item in ViewBag.TaskName)
+                                {
+                                    string name = item.Text;
+                                    if (name.IndexOf('-') > -1)
+                                    {
+                                        var d = name.Split('-');
+                                        <option value="@item.Value">&nbsp;&nbsp;&nbsp;&nbsp;@d[1]</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="@item.Value">@name</option>
+                                    }
+
+                                }
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" id="showsColumn" style="display:none">
+                    <div class="col-md-4">
+                        <label class="control-label" style="padding-top:10px">Shows</label>
+                    </div>
+                    <div class="col-md-8">
+                        <div id="cmbShows">
+                            @Html.DropDownList("Shows", "select--")
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label class="control-label"  style="padding-top:10px">No. of Days</label>
+                    </div>
+                    <div class="col-md-8">
+                        <label id="Days" class="label-field"></label>
+                        @*<input type="lab" name="Days" id="Days" value="" class="wrap-content" />*@
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <input type="button" name="tskbtn" class="Tbtn wrap-content" value="Add" id="btnAddSchedule" style="width:100%;" />
+                        <input type="hidden" id="tempID" />
+                        <input type="hidden" id="editIndex" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+    
+                <div class="row">
+                    <div class="col-md-4">
+                        <label class="control-label" style="padding-top:10px"> Task Start Date</label>
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" class="date" name="StDate" id="StDate" style="width:100%;" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label class="control-label" style="padding-top:10px"> Task End Date</label>
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" class="date" name="EDate" id="EDate" style="width:100%;" />
+                    </div>
+                </div>
+            </div>
+      
+        </div>
+        
+        <br />
+        <div class="row" style="overflow-y: scroll;height: 234px;border: 1px solid #B7B7B7;border-radius: 6px;">
+            <div class="col-md-12">
+                <table border="1" id="TaskTable" style="border-color: azure;" class="table table-bordered table-condensed">
+                    <tr>
+                        <th>Task Name</th>
+                        <th>Show(If there is any)</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>Days</th>
+                        <th>Action</th>
+                    </tr>
+                    @*<tr class="edittr">
+                <td>
+                <div id="dropdown">
+                    <select>
+                        @foreach (var item in ViewBag.TaskName)
+                        {
+                            string name = item.Text;
+                            if (name.IndexOf('-') > -1)
+                            {
+                                var d=name.Split('-');
+                                <option value="@item.Value">&nbsp;&nbsp;&nbsp;&nbsp;@d[1]</option>
+                            }
+                            else
+                            {
+                                <option value="@item.Value">@name</option>
+                            }
+
+                        }
+                    </select>
+
+                </div>
+                </td>
+                <td><input type="text" class="date" name="StDate" id="StDate" style="width:100%;" /></td>
+                <td><input type="text" class="date" name="EDate" id="EDate" style="width:100%;" /></td>
+                <td><input type="number" name="Days" id="Days" value="" class="wrap-content" /></td>
+                <td><input type="button" name="tskbtn" class="Tbtn wrap-content" value="Add" id="tskbtn"/> </td>
+            </tr>*@
+                </table>
+                <input type="button" id="offbtn" value="Proceed" />
+            </div>
+          
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).on('change', '#dropdown>select', function () {
+        debugger;
+        var data = $(this).val();
+        if(data==3)
+        {
+            alert('you cannot select rehearsals.select any subsection from given dropdown');            
+            $(this).val(4);
+            $('#showsColumn').css('display', 'block');
+        }
+        else
+        {
+            if (data == 4 || data == 5 || data == 6 || data == 7 || data == 8) {
+                $('#showsColumn').css('display', 'block');
+            }
+            else {
+                $('#showsColumn').css('display', 'none');
+            }
+        }
+        
+
+    });
+</script>

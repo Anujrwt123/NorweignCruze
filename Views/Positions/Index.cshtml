@@ -1,0 +1,47 @@
+﻿@model IEnumerable<CruiseEntertainmentManagnmentSystem.Models.Position>
+
+@{
+    ViewBag.Title = "Positions";
+}
+
+<h3 class="text-center page-heading" >@ViewBag.Title</h3>
+<br />
+<a href="#" onclick="goToCreate('/Positions/create')">Create New</a>
+
+    @*@Html.ActionLink("Create New", "Create", null, new { @class = "create-link" })*@
+
+<div id="dataContainer">
+      @Html.Action("Positions")
+</div>
+
+@*<h2>Index</h2>
+
+
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>*@

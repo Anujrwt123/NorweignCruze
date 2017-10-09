@@ -1,0 +1,29 @@
+﻿@model CruiseEntertainmentManagnmentSystem.Models.Groups
+
+@{
+    ViewBag.Title = "Group Details";
+}
+
+<h2>@ViewBag.Title.</h2>
+
+<fieldset>
+    <legend>Groups</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.GroupName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.GroupName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Description)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

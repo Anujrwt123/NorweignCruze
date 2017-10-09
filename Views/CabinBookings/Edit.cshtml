@@ -1,0 +1,266 @@
+﻿@model CruiseEntertainmentManagnmentSystem.Models.CabinBooking
+
+@{
+    ViewBag.Title = "Cabin Booking";
+}
+<h3 class="title pad">@ViewBag.Title</h3>
+
+<script>
+
+    $(document).on('change', '#BookingTo', function () {
+        //debugger;
+        var from = $('#BookingFrom').val();
+        var to = $('#BookingTo').val();
+        getBookingHistory(from, to);
+    });
+
+    //function getData() {
+    //    //$('#divLoading').show();
+
+    //    //$('#data').load('/CabinBooking/GetBooking?From=' + from + '&To=' + to, function () { $('#divLoading').hide(); });
+
+
+    //    //$.ajax({
+
+    //    //    url: '',
+    //    //    data: {From:from,To:to},
+    //    //    success: function (data) { },
+    //    //    error: function () { }
+
+    //    //});
+    //}
+
+
+
+</script>
+
+@using (Html.BeginForm("edit","CabinBookings" ))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <div class="row">
+        <div class="col-md-6">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.CabinNo)
+            </div>
+            <div class="editor-field">
+                @*@Html.EditorFor(model => model.CabinNo)*@
+
+                @Html.DropDownList("CabinNo", "Select---")
+                @Html.ValidationMessageFor(model => model.CabinNo)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Reservation)
+            </div>
+            <div class="editor-field">
+                @*<input type="text" id="Reservation" name="Reservation" value="Reservation" />*@
+                @*@Html.EditorFor(model => model.Reservation)*@
+                @Html.TextBox("Reservation")
+                @Html.ValidationMessageFor(model => model.Reservation)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Name)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Name)
+                @Html.ValidationMessageFor(model => model.Name)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Position)
+            </div>
+            <div class="editor-field">
+                @Html.DropDownList("Position", "--select--")
+                @*@Html.EditorFor(model => model.Position)*@
+                @Html.ValidationMessageFor(model => model.Position)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Fleet)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Fleet)
+                @Html.ValidationMessageFor(model => model.Fleet)
+            </div>
+
+        </div>
+        <div class="col-md-6">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.BookingType)
+            </div>
+            <div class="editor-field">
+                @Html.DropDownList("BookingType", "--select--")
+                @*@Html.EditorFor(model => model.BookingType)*@
+                @Html.ValidationMessageFor(model => model.BookingType)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.BookingFrom)
+            </div>
+            <div class="editor-field">
+                @*<input type="Date" id="BookingFrom" name="BookingFrom" />*@
+                @*@Html.TextBoxFor(x => x.BookingFrom, "{0:yyyy-MM-dd}", new { @class = "date" })*@
+                <input type="text" class="date"  id="BookingFrom" name="BookingFrom" value="@Model.BookingFrom.ToShortDateString()" />
+                @*@Html.EditorFor(model => model.BookingFrom)*@
+                @Html.ValidationMessageFor(model => model.BookingFrom)
+            </div>  
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.BookingTo)
+            </div>
+            <div class="editor-field">
+                @*<input type="Date" id="BookingTo" name="BookingTo" />*@
+                @*@Html.TextBoxFor(x => x.BookingTo, "{0:yyyy-MM-dd}", new { @class = "date" })*@
+                @*@Html.EditorFor(model => model.BookingTo)*@
+                <input type="text" class="date" id="BookingTo" name="BookingTo" value="@Model.BookingTo.ToShortDateString()"/>
+
+                @Html.ValidationMessageFor(model => model.BookingTo)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Hotel)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Hotel)
+                @Html.ValidationMessageFor(model => model.Hotel)
+            </div>
+
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Requestor)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Requestor)
+                @Html.ValidationMessageFor(model => model.Requestor)
+            </div>
+
+        </div>
+
+    </div>
+    <input type="submit" value="Update" class="btn" style="margin-left: 20px;" /><span></span>
+    <a href="#" onclick="goToPrevious(@ViewBag.ReturnUrl)">Back to List</a>
+    @*<input type="button" onclick="getData()" value="Get Status" />*@
+    <br /><br />
+}
+
+
+<div id="historyContainer">
+    <div id="loading">
+        <img src="~/Images/loading.gif" style="height:40px;width:40px" />
+    </div>
+    <div id="data">
+    </div>
+</div>
+
+
+
+@*@model CruiseEntertainmentManagnmentSystem.Models.CabinBooking
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>CabinBooking</legend>
+
+        @Html.HiddenFor(model => model.ID)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CabinNo)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CabinNo)
+            @Html.ValidationMessageFor(model => model.CabinNo)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Reservation)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Reservation)
+            @Html.ValidationMessageFor(model => model.Reservation)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Position)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Position)
+            @Html.ValidationMessageFor(model => model.Position)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.BookingType)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.BookingType)
+            @Html.ValidationMessageFor(model => model.BookingType)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.BookingFrom)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.BookingFrom)
+            @Html.ValidationMessageFor(model => model.BookingFrom)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.BookingTo)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.BookingTo)
+            @Html.ValidationMessageFor(model => model.BookingTo)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Hotel)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Hotel)
+            @Html.ValidationMessageFor(model => model.Hotel)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Fleet)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Fleet)
+            @Html.ValidationMessageFor(model => model.Fleet)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Requestor)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Requestor)
+            @Html.ValidationMessageFor(model => model.Requestor)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}*@

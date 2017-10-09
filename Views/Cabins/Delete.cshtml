@@ -1,0 +1,39 @@
+﻿@model CruiseEntertainmentManagnmentSystem.ViewModel.CabinsViewModel
+
+@{
+    ViewBag.Title = "Cabin Delete";
+}
+
+<h2>@ViewBag.Title.</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>CabinsViewModel</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CabinName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CabinName)
+    </div>
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CabinType)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CabinType)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CategoryName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CategoryName)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

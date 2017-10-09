@@ -1,0 +1,44 @@
+﻿@model CruiseEntertainmentManagnmentSystem.Models.LoginModel
+
+@{
+    ViewBag.Title = "Log in";
+    Layout = "~/Views/Account/_Layout.cshtml";
+}
+<link href="~/Content/custom.css" rel="stylesheet" />
+@*<section id="loginForm">*@
+<div class="login-div">
+    <div class="text-center" style=" padding: 0px;"> 
+        <img src="~/Images/avtaradmin.png" style="margin-top:10px; margin-bottom: 20px;"/>
+    @using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+       <div style="padding-left: 70px;">
+           <div class="input-group input-group-sm bottom-space">
+               <span class="input-group-addon" id="sizing-addon3"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></span>
+               <input type="text" class="form-control login-input" placeholder="Username" aria-describedby="sizing-addon3" id="UserName" name="UserName">
+              
+           </div>
+           <div>@Html.ValidationMessageFor(m => m.UserName)</div>
+           <div class="input-group input-group-sm bottom-space">
+               <span class="input-group-addon" id="sizing-addon3"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span></span>
+               <input type="password" class="form-control login-input" placeholder="Password" aria-describedby="sizing-addon3" name="Password" id="Password">
+              
+           </div>
+           <div>@Html.ValidationMessageFor(m => m.Password)</div>
+       </div>
+      <a href="/Persons/Create" style="font-weight: 600; color: #71CEEB;">Create account</a>
+    <input type="submit" value="Log in" id="log-in"/>
+    }
+</div>
+@*</section>*@
+
+@*<section class="social" id="socialLoginForm">
+    <h2>Use another service to log in.</h2>
+    @Html.Action("ExternalLoginsList", new { ReturnUrl = ViewBag.ReturnUrl })
+</section>*@
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

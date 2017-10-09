@@ -1,0 +1,177 @@
+﻿@model CruiseEntertainmentManagnmentSystem.ViewModel.NewDate
+
+<style>
+    .checkboxOne {
+        background : #00FF00;
+        width:15px;
+        height:20px;
+      
+    }
+</style>
+
+    <div id="pid">
+
+        <div class="row">
+
+                <div class="col-md-6" style=" margin-top: 10px;">
+                    <div class="col-md-3">
+                        <label class="grey">Occupied</label>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="occupied">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="grey">Available</label>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="available">
+
+                        </div>
+                    </div>
+                </div>
+        </div>
+    <br />
+    <table id="bookingTable" class="text-center">
+        <thead class="header-bg">
+            <tr>
+                <th class="tab-header text-center">Cabins<span class="less-space"></span></th>
+                @foreach (var item in Model.dates)
+                {
+                    <th class="tab-header text-center">
+                        @item.Date.ToShortDateString()<span class="space"></span>
+                    </th>
+                }
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Cabins)
+            {
+                <tr>
+
+                    <td class="right-border">@item.CabinName</td>
+
+                    @foreach (var item1 in Model.dates)
+                    {
+                        int count = 0;
+                        string key;
+                        <td class="right-border">
+                            @foreach (var i in Model.booking)
+                            {
+                                if (item.ID == i.CabinNo && i.BookingFrom <= item1.Date && i.BookingTo >= item1.Date)
+                                {
+                                    key = i.CabinNo + "-" + item1.Date;
+                                    <div style="background-color:#FFC7C5;height:40px;">
+                                        @*<input class="kt" value="@key" type="checkbox" disabled checked  />*@
+                                    </div>
+
+                                    count = 1;
+                                    break;
+                                }
+
+                            }
+
+                            @if (count == 0)
+                            {
+                                key = item.ID + "-" + item1.Date;
+                                <div style="background-color:#D1FEE5;height:40px;">
+
+                                </div>
+
+
+                                @*<input class="chk" value="@key" type="checkbox" />*@
+
+                            }
+
+
+
+                        </td>
+                    }
+
+                    <td></td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    @*<p>
+
+
+        </p>
+        <style>
+            .scrollit {
+                overflow: scroll;
+                height: 100px;
+            }
+        </style>
+        <div id="PID" style="width:100%;
+             border: 1px solid;
+            overflow-y:scroll;
+            padding: 3px 3px 3px 10px;">
+            <table id="bookingTable" bgcolor="#6495ED">
+                <thead>
+                    <tr>
+                        <td>Cabins</td>
+                        @foreach (var item in Model.dates)
+                        {
+                            <td>
+                                @item.Date.ToShortDateString
+                            </td>
+                        }
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Cabins)
+                    {
+                        <tr>
+
+                            <td>@item.cabinno</td>
+
+                            @foreach (var item1 in Model.dates)
+                            {
+                                int count = 0;
+                                string key;
+                                <td>
+                                    @foreach (var i in Model.booking)
+                                    {
+                                        if (item.ID == i.CabinNo && i.BookingTo == item1.Date)
+                                        {
+                                            key = i.CabinNo + "-" + item1.Date;
+                                            <input value="@key" type="checkbox" checked disabled />
+                                            count = 1;
+                                            break;
+                                        }
+
+                                    }
+
+                                    @if (count == 0)
+                                    {
+                                        key = item.ID + "-" + item1.Date;
+                                        <input class="chk" value="@key" type="checkbox" />
+                                    }
+
+
+
+                                </td>
+                            }
+
+                            <td></td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>*@

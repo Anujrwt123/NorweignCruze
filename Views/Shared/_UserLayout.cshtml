@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@ViewBag.Title - My ASP.NET MVC Application</title>
+    <link href="~/Content/user-custom.css" rel="stylesheet" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <link href="~/Content/menustyles.css" rel="stylesheet" />
+
+    <script src="~/Scripts/menuscript.js"></script>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    @*<script src="~/Scripts/jquery-2.2.0.min.js"></script>*@
+    <link href="~/Content/CCStyle.css" rel="stylesheet" />
+    @*<script src="~/Scripts/jquery-1.8.2.min.js"></script>*@
+
+
+    <script src="~/Scripts/gridmvc.min.js"></script>
+    @*<script src="~/Scripts/bootstrap.min.js"></script>*@
+    <link href="~/Content/custom.css" rel="stylesheet" />
+    <link href="~/Content/Gridmvc.css" rel="stylesheet" />
+    <script src="~/Scripts/Common.js"></script>
+    <script src="~/Scripts/Schedule.js"></script>
+    @*<link href="~/Content/Site.css" rel="stylesheet" />*@
+    @*@Styles.Render("~/Content/css")*@
+    <script src="~/Scripts/CustomCalendar.js"></script>
+    <script src="~/Scripts/Contractors.js"></script>
+    @Scripts.Render("~/bundles/modernizr")
+    <script src="~/Scripts/UserScript.js"></script>
+    @*<script src="~/Scripts/uikit.min.js"></script>
+        <link href="~/Content/uikit.gradient.min.css" rel="stylesheet" />
+        <link href="~/Content/uikit.min.css" rel="stylesheet" />*@
+
+    <link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
+    <!-- Load jQuery JS -->
+    <!-- Load jQuery UI Main JS  -->
+
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
+    <script src="~/Scripts/menuscript.js"></script>
+    <script>
+
+        $(document).ready(function () {
+
+            $(".date").datepicker({
+                changeMonth: true,//this option for allowing user to select month
+                changeYear: true //this option for allowing user to select from year range
+            });
+        });
+    </script>
+    <script>
+
+    $(document).on('click', '#downloadw9', function () {
+        //$.ajax({
+        //    url: "/UserHome/GenerateW9PDF/",
+        //    success: function () {
+        //    },
+        //    error: function () {
+        //    }
+        //});
+        window.open("/UserHome/GenerateW9PDF/");
+    })
+    </script>
+
+
+
+    <link href="~/Content/jquery.editable-select.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery.editable-select.min.js"></script>
+
+
+</head>
+<body>
+    <div id="overLay" class="overLay" style="display:none">
+        <div class="Datacontainer" id="Datacontainer">
+        </div>
+        <div id="ConContainer" class="setContract" display="none">
+        </div>
+    </div>
+
+    <div id="overLay1" class="overLay" style="display:none">
+
+
+        <div id="Datacontainer1">
+
+        </div>
+    </div>
+    <div id="overLay2" class="overLay" style="display:none">
+        <div id="conContainer" class="setContract">
+
+        </div>
+    </div>
+    <div id="loadingDiv" class="overLay" style="display:none">
+
+        <img src="~/Images/loading.gif" style="width: 40px; height: 40px;top: 50%;
+    left: 50%;
+    position: absolute;" />
+    </div>
+    <div class="container-fluid" style="padding-left:0px;padding-right:0px;">
+        <header>
+
+            <div class="row logo-box">
+                <div class="col-md-3 text-left">
+                    <img src="~/Images/logo1.png" class="logo" />
+                </div>
+                <div class="col-md-6"></div>
+                <div class="col-md-3">
+                    <section id="login">
+                        @Html.Partial("_LoginPartial")
+                    </section>
+                </div>
+            </div>
+            <div class="row content-row">
+                <div class="col-md-2 menu-col">
+                    <div id='main-nav'>
+                        <ul>
+                            <li><a href='/Userhome/ProfileView' id="">Contractor Profile</a></li>
+                            <li><a href='/Userhome/CrewDataForm' id="">NCL Crew Data Form</a></li>
+                            <li><a href='/UserHome/PersonalInformationForm'>PCH Personal Information Form</a></li>
+                            <li><a href='/UserHome/TravelRequestForm'>Travel Request Form</a></li>
+                            <li><a href='/UserHome/FinanceAndPayments' id="">Finance And Payments</a></li>
+                            <li><a href='#' id="">Schedules</a></li>
+                            <li><a href='/UserHome/ShipsAndShows' id="">Ships And Shows</a></li>
+                            <li><a href='#' id="">My Availability</a></li>
+                            <li><a href='/UserHome/ContactNCL' >CONTACT NCL CREATIVE STUDIOS</a></li>                                                                                                               
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-10" id="databox">
+                    <div>
+                        @RenderSection("featured", required: false)
+                        <section class="bg">
+                            @RenderBody()
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </header>
+        @*<div class="container container-pad">
+            @RenderSection("featured", required: false)
+            <section class="bg">
+                @RenderBody()
+            </section>
+        </div>*@
+        <footer>
+
+            <input type="hidden" id="returnUrl" value="@ViewBag.returnURL" />
+            <div class="content-wrapper">
+                @*<div class="float-left">
+                        <p>&copy; @DateTime.Now.Year - My ASP.NET MVC Application</p>
+                    </div>*@
+            </div>
+        </footer>
+    </div>
+    @*@Scripts.Render("~/bundles/jquery")*@
+    @RenderSection("scripts", required: false)
+</body>
+</html>

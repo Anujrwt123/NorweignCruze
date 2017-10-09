@@ -1,0 +1,236 @@
+﻿@model CruiseEntertainmentManagnmentSystem.Models.CabinBooking
+
+@{
+    ViewBag.Title = "Cabin Booking";
+}
+
+
+<h3 class="title pad">@ViewBag.Title</h3>
+<script type="text/javascript">
+    $(document).on('change', '#BookingTo', function () {
+        //debugger;
+        var curDate = new Date();
+        curDate = formatDate(curDate);
+        curDate = new Date(curDate);
+        var data = $(this).val();
+        data = formatDate(data);
+        toDate = new Date(data);
+
+        //var diff = Date.daysBetween(curDate, toDate);
+        if (toDate<curDate)
+        {
+            $(this).val('');
+            alert('selected Date should be greater than today\'s Date');
+
+            return;
+        }
+        var data1 = $('#BookingFrom').val();
+        data1 = formatDate(data1);
+        fromdate = new Date(data1);
+
+        if (fromdate > toDate || toDate < fromdate) {
+            $(this).val('');
+            alert('End Date should be greater then Start Date');
+            return;
+        }
+    });
+
+    $(document).on('change', '#BookingFrom', function () {
+        //debugger;
+        var curDate = new Date();
+        curDate = formatDate(curDate);
+        curDate = new Date(curDate);
+        var data = $(this).val();
+        data = formatDate(data);
+        toDate = new Date(data);
+       // var diff = Date.daysBetween(curDate, toDate);
+        if (toDate < curDate) {
+            $(this).val('');
+            alert('selected Date should be greater than today\'s Date');
+            
+            return;
+        }
+
+        var data1 = $('#BookingFrom').val();
+        data1 = formatDate(data1);
+        fromdate = new Date(data1);
+
+        if (fromdate > toDate || toDate < fromdate) {
+            $(this).val('');
+            alert('Start Date should be less then End Date');
+            return;
+        }
+    });
+</script>
+
+@if (ViewBag.Message != null)
+{
+    <script>
+
+        $(document).ready(function () {
+
+            alert('@ViewBag.Message');
+
+        });
+
+    </script>
+
+}
+
+
+<script>
+
+    $(document).on('change', '#BookingTo', function () {
+        //debugger;
+        var from = $('#BookingFrom').val();
+        var to = $('#BookingTo').val();
+        if (from != undefined && from != "" && to != undefined && to != "")
+        {
+            getBookingHistory(0, from, to);
+        }
+
+        
+    });
+
+   
+    //function getData() {
+    //    //$('#divLoading').show();
+       
+    //    //$('#data').load('/CabinBooking/GetBooking?From=' + from + '&To=' + to, function () { $('#divLoading').hide(); });
+
+
+    //    //$.ajax({
+
+    //    //    url: '',
+    //    //    data: {From:from,To:to},
+    //    //    success: function (data) { },
+    //    //    error: function () { }
+
+    //    //});
+    //}
+</script>
+
+
+@using (Html.BeginForm("Create", "CabinBooking", FormMethod.Post, new { @class = "uk-form" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <div class="row">
+        <div class="col-md-6">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.CabinNo)
+            </div>
+            <div class="editor-field">
+                @*@Html.EditorFor(model => model.CabinNo)*@
+                
+                @Html.DropDownList("CabinNo", "Select---")
+                @Html.ValidationMessageFor(model => model.CabinNo)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Reservation)
+            </div>
+            <div class="editor-field">
+                @*<input type="text" id="Reservation" name="Reservation" value="Reservation" />*@
+                @*@Html.EditorFor(model => model.Reservation)*@
+                @Html.TextBox("Reservation")
+                @Html.ValidationMessageFor(model => model.Reservation)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Name)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Name)
+                @Html.ValidationMessageFor(model => model.Name)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Position)
+            </div>
+            <div class="editor-field">
+                @Html.DropDownList("Position", "--select--")
+                @*@Html.EditorFor(model => model.Position)*@
+                @Html.ValidationMessageFor(model => model.Position)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Fleet)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Fleet)
+                @Html.ValidationMessageFor(model => model.Fleet)
+            </div>
+
+        </div>
+        <div class="col-md-6">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.BookingType)
+            </div>
+            <div class="editor-field">
+                @Html.DropDownList("BookingType", "--select--")
+                @*@Html.EditorFor(model => model.BookingType)*@
+                @Html.ValidationMessageFor(model => model.BookingType)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.BookingFrom)
+            </div>
+            <div class="editor-field">
+                <input type="text" class="date" id="BookingFrom" name="BookingFrom" />
+                @*@Html.TextBoxFor(x => x.BookingFrom, "{0:yyyy-MM-dd}", new { @class = "date", @id = "BookingFrom" })*@ 
+                @*@Html.EditorFor(model => model.BookingFrom)*@
+                @Html.ValidationMessageFor(model => model.BookingFrom)
+            </div>
+
+            <div class="editor-label">  
+                @Html.LabelFor(model => model.BookingTo)
+            </div>
+            <div class="editor-field">
+                <input type="text" class="date" id="BookingTo" name="BookingTo" />
+                @*@Html.TextBoxFor(x => x.BookingTo, "{0:yyyy-MM-dd}", new { @class = "date", @id = "BookingTo" })*@
+                @*@Html.EditorFor(model => model.BookingTo)*@
+
+                @Html.ValidationMessageFor(model => model.BookingTo)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Hotel)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Hotel)
+                @Html.ValidationMessageFor(model => model.Hotel)
+            </div>
+
+      
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Requestor)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Requestor)
+                @Html.ValidationMessageFor(model => model.Requestor)
+            </div>
+
+        </div>
+
+    </div>
+            <input type="submit" value="Create" class="btn" style="margin-left: 20px;" /><span></span>
+            <a href="#" onclick="goToPrevious(@ViewBag.ReturnUrl)">Back to List</a>
+            @*<input type="button" onclick="getData()" value="Get Status" />*@
+    <br /><br />
+}
+
+
+<div id="historyContainer">
+    <div id="loading">
+        <img src="~/Images/loading.gif" style="height:40px;width:40px" />
+    </div>    
+    <div id="data">
+    </div>
+</div>
+ 
+    @*@Html.ActionLink("Back to List", "Index")*@
+   
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

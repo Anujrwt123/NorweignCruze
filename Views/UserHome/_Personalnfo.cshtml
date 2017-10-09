@@ -1,0 +1,249 @@
+﻿@model CruiseEntertainmentManagnmentSystem.ViewModel.PIFViewModel
+    @{
+    Layout = null;
+}
+
+<div style="width:90%;font-size:15px;margin:0 auto;height:1000px">
+    <div style="text-align:center;"><img src="http://localhost:64819/Images/User/PIF.jpg" /></div>
+    <div style="text-align:center;"><h4>PERSONAL INFORMATION FORM</h4></div>
+    <div style="width:100%;">
+        <div style="width:50%;border-left:1px solid grey;border-top:1px solid grey; border-bottom:1px solid grey;float:left;">
+            <div style="border-bottom:1px solid blue;padding-left:10px;">
+                <p>Name as appears in passport</p>
+                <label>FIRST NAME: <span style="padding-left:20px;color:#56565a;">@Html.DisplayFor(model => model.FirstName)</span></label>
+            </div>
+            <div style="border-bottom:1px solid blue;padding-left:10px;">
+                <label>MIDDLE NAME:</label>
+            </div>
+            <div style="border-bottom:1px solid blue;padding-left:10px;">
+                <label>LAST NAME: <span style="padding-left:20px;color:#56565a;">@Html.DisplayFor(model => model.LastName)</span></label>
+            </div>
+            <div style="border-bottom:1px solid blue;padding-left:10px;">
+                <label>PERMANENT HOME ADDRESS:</label>
+            </div>
+            <div style="border-bottom:1px solid blue;padding-left:10px;height:16px;">
+                <label><span style="padding-left:20px;color:#56565a;">@Html.DisplayFor(model => model.Address)</span></label>
+            </div>
+            <div style="border-bottom:1px solid blue;padding-left:10px;height:16px;">
+                <label></label>
+            </div>
+            <div style="border-bottom:1px solid blue;padding-left:10px;">
+                <label>HOW LONG HAVE YOU LIVED AT THIS ADDRESS:<span style="padding-left:20px;color:#56565a;">@Html.DisplayFor(model => model.CurrentAddressStay) </span></label>
+            </div>
+            <div style="border-bottom:1px solid blue;padding-left:10px;">
+                <label>E-MAIL: <span style="padding-left:20px;color:#56565a;">@Html.DisplayFor(model => model.Email)</span></label>
+            </div>
+            <div style="border-bottom:1px solid blue;padding-left:10px;">
+                <label>HOME TELEPHONE: <span style="padding-left:20px;color:#56565a;">@Html.DisplayFor(model => model.Phone)</span></label>
+            </div>
+            <div style="border-bottom:1px solid blue;padding-left:10px;">
+                <label>MOBILE PHONE:<span style="padding-left:20px;color:#56565a;">@Html.DisplayFor(model => model.Mobile)</span></label>
+            </div>
+            <div style="border-bottom:1px solid blue;padding-left:10px;">
+                <label>DATE OF BIRTH:<span style="padding-left:20px;color:#56565a;">@Html.DisplayFor(model => model.Dob)</span></label>
+            </div>
+            <div style="border-bottom:1px solid blue;padding-left:10px;">
+                <label>PLACE OF BIRTH: <span style="padding-left:20px;color:#56565a;">@Html.DisplayFor(model => model.BirthPlace)</span></label>
+            </div>
+            <div style="border-bottom:1px solid blue;padding-left:10px;">
+                <label>NATIONALITY: </label>
+            </div>
+            <div style="border-bottom:1px solid blue;padding-left:10px;">
+
+                <label>SINGLE @Html.RadioButtonFor(model => model.MaritalStatus, "0") MARRIED @Html.RadioButtonFor(model => model.MaritalStatus, "1") DIVORCED @Html.RadioButtonFor(model => model.MaritalStatus, "2") WIDOWED @Html.RadioButtonFor(model => model.MaritalStatus, "3") SEPRATED @Html.RadioButtonFor(model => model.MaritalStatus, "4")</label>
+            </div>
+            <div style="border-bottom:1px solid blue;padding-left:10px;">
+                <label>PASSPORT #: <span style="padding-left:20px;color:#56565a;"></span>@Html.DisplayFor(model => model.PassPortNumber)</label>
+            </div>
+            <div style="border-bottom:1px solid blue;padding-left:10px;">
+                <label>ISSUE DATE: <span style="padding-left:20px;color:#56565a;">@Html.DisplayFor(model => model.IssueDate)</span> EXPIRY DATE: <span style="padding-left:20px;color:#56565a;"> @Html.DisplayFor(model => model.ExpireDate)</span></label>
+            </div>
+            <div style="border-bottom:1px solid blue;padding-left:10px;">
+                <label>IF YOU HAVE A SECOND PASSPORT:</label>
+                <br />
+                <label> ISSUING COUNTRY: <span style="padding-left:20px;color:#56565a;">@Html.DisplayFor(model => model.SecondaryIssueCountry)</span></label>
+            </div>
+            <div style="border-bottom:1px solid blue;padding-left:10px;">
+                <label>PASSPORT #: <span style="padding-left:20px;color:#56565a;">@Html.DisplayFor(model => model.SecondaryPassportNumber)</span></label>
+            </div>
+            <div style="border-bottom:1px solid blue;padding-left:10px;">
+                <label>ISSUE DATE: <span style="padding-left:20px;color:#56565a;">@Html.DisplayFor(model => model.SecondaryIssueDate)</span> EXPIRY DATE:  <span style="padding-left:20px;color:#56565a;">@Html.DisplayFor(model => model.SecondaryExpireDate)</span></label>
+            </div>
+            <div style="border-bottom:1px solid blue;padding-left:10px;">
+                <label style="font-size:13px;font-weight:800;">EMERGENCY CONTACT</label>
+            </div>
+            <div style="border-bottom:1px solid blue;padding-left:10px;">
+                <label>NAME:<span style="padding-left:20px;color:#56565a;">@Html.DisplayFor(model => model.EmergencyContactName) </span></label>
+            </div>
+            <div style="border-bottom:1px solid blue;padding-left:10px;">
+                <label>ADDRESS:</label>
+            </div>
+            <div style="border-bottom:1px solid blue;padding-left:10px;height:16px;">
+                <label><span style="padding-left:20px;color:#56565a;">@Html.DisplayFor(model => model.EmergencyAddress)</span></label>
+            </div>
+            <div style="border-bottom:1px solid blue;padding-left:10px;height:16px;">
+                <label></label>
+            </div>
+            <div style="border-bottom:1px solid blue;padding-left:10px;">
+                <label>E-MAIL ADDRESS: <span style="padding-left:20px;color:#56565a;">@Html.DisplayFor(model => model.EmergencyEmail)</span></label>
+            </div>
+            <div style="border-bottom:1px solid blue;padding-left:10px;">
+                <label>RELATIONSHIP TO ABOVE? <span style="padding-left:20px;color:#56565a;">@Html.DisplayFor(model => model.EmergencyRelation)</span></label>
+            </div>
+            <div style="border-bottom:1px solid blue;padding-left:10px;">
+                <label>DAYTIME TELEPHONE:  <span style="padding-left:20px;color:#56565a;">@Html.DisplayFor(model => model.EmergencyPhone)</span></label>
+            </div>
+            <div style="border-bottom:1px solid blue;padding-left:10px;">
+                <label>EVENING TELEPHONE: <span style="padding-left:20px;color:#56565a;">@Html.DisplayFor(model => model.EveningTelePhone)</span></label>
+            </div>
+            <div style="border-bottom:1px solid blue;padding-left:10px;">
+                <label>BEST TIME TO CALL: <span style="padding-left:20px;color:#56565a;">@Html.DisplayFor(model => model.BestTimetoCall)</span></label>
+            </div>
+            <div style="border-bottom:1px solid blue;padding-left:10px;">
+                <label style="font-size:13px;font-weight:800;">OTHER INFORMATION</label>
+            </div>
+            <div style="border-bottom:1px solid blue;padding-left:10px;">
+                <label style="font-weight:900;">
+                    <span>VESSEL:</span>
+                    @if (Model != null)
+                    {
+                        foreach (var item in Model.Ships)
+                        {
+                            <span>@item.Name</span> <span><span style="padding-left:20px;color:#56565a;">@Html.RadioButtonFor(model => model.Ship, item.ID) </span></span>
+                        }
+                    }
+                    else
+                    {
+                        foreach (var item in ViewBag.ships as IEnumerable<SelectListItem>)
+                        {
+                            <span>@item.Text</span> <span><span style="padding-left:20px;color:#56565a;">@Html.RadioButtonFor(model => model.Ship, item.Value)</span></span>
+                        }
+                    }
+
+
+                </label>
+                
+            </div>
+            <div style="border-bottom:1px solid blue;padding-left:10px;">
+                <label>POSITION:<span style="padding-left:20px;color:#56565a;">@Html.DisplayFor(model => model.PositionName)</span></label>
+            </div>
+            <div style="border-bottom:1px solid blue;padding-left:10px;">
+                <label>DATE OF HIRE:<span style="padding-left:20px;color:#56565a;">@Html.DisplayFor(model => model.DateOfHire)</span></label>
+            </div>
+        </div>
+        <div style="width:48%;border:1px solid;float:left;">
+            <div style="border-bottom:1px solid blue;padding-left:10px;">
+                <label>CLOSEST AIRPORT:<span style="padding-left:20px;color:#56565a;">@Html.DisplayFor(model => model.ClosestAirport)</span></label>
+            </div>
+            <div style="border-bottom:1px solid blue;padding-left:10px;">
+                <label style="font-size:13px;font-weight:800;">BACKGROUND (mandatory)</label>
+            </div>
+            <div  style="padding-left:10px;">
+                Have you ever been convicted of a felony or a criminal misdemeanor? @if (Model != null && Model.IsCriminalRecord)
+                { <label>Yes @Html.RadioButtonFor(model => model.IsCriminalRecord, true) No @Html.RadioButtonFor(model => model.IsCriminalRecord, false)</label>}
+                else { <label>Yes @Html.RadioButtonFor(model => model.IsCriminalRecord, false) No @Html.RadioButtonFor(model => model.IsCriminalRecord, true)</label>}
+                <br />
+                If you have checked “yes” above, please provide a brief explanation of the conviction.                
+                <div style="border-bottom:1px dashed;height:15px;"><span style="padding-left:20px;color:#56565a;">@Html.DisplayFor(model => model.CriminalCaseExplaination)</span></div>
+                <div style="border-bottom:1px dashed;height:15px;"></div>
+                <div style="border-bottom:1px dashed;height:15px;"></div>
+                <div style="border-bottom:1px dashed;height:15px;"></div>
+            </div>
+            <div style="padding-left:10px;border-bottom:1px solid blue;padding-bottom:3px;">
+                Have you ever been dismissed from cruise vessel  @if (Model != null && Model.IsDismissed)
+                {<label>Yes @Html.RadioButtonFor(model => model.IsDismissed, true)  No @Html.RadioButtonFor(model => model.IsDismissed, false)</label>}
+                else { <label>Yes @Html.RadioButtonFor(model => model.IsDismissed, false)  No @Html.RadioButtonFor(model => model.IsDismissed, true)</label>}
+                <br />            
+                If you have checked “yes” above, please provide a brief explanation and dates.    
+                <div style="border-bottom:1px dashed;height:15px;"><span style="padding-left:20px;color:#56565a;">@Html.DisplayFor(model => model.DismissCruiseExplaination)</span></div>
+                <div style="border-bottom:1px dashed;height:15px;"></div>
+                <div style="border-bottom:1px dashed;height:15px;"></div>
+                <div style="border-bottom:1px dashed;height:15px;"></div>
+            </div>
+            <div style="border-bottom:1px solid blue;padding-left:10px;">
+                <label style="font-size:13px;font-weight:800;">VISA INFORMATION</label>
+            </div>
+            <div style="border-bottom:1px solid blue;padding-left:10px;">
+                <label>Do you have a valid C1D visa?</label><br/>
+                @if (Model!=null && Model.VisaIssueDate != null)
+                {
+                    <label>Yes <input type="radio" checked="checked" />No <input type="radio"/>&nbsp;&nbsp;<label>If yes please complete the below</label></label>
+                }
+                else
+                {
+                    if(Model == null)
+                    {
+                        <label>Yes <input type="radio" />No <input type="radio"  />&nbsp; &nbsp;If yes please complete the below</label>
+                    }
+                    else
+                    {
+                        <label>Yes <input type="radio" />No <input type="radio" checked="checked" />&nbsp; &nbsp;If yes please complete the below</label>
+                    }
+                    
+
+                }                
+            </div>
+            <div style="border-bottom:1px solid blue;padding-left:10px;">
+                <label>ISSUE DATE: @if (Model != null && Model.VisaIssueDate.HasValue) { <span style="padding-left:20px;color:#56565a;"> @Model.VisaIssueDate.Value</span>}</label>
+            </div>
+            <div style="border-bottom:1px solid blue;padding-left:10px;">
+                <label>EXPIRY DATE:@if (Model != null &&  Model.VisaIssueExpireDate.HasValue){ <span style="padding-left:20px;color:#56565a;"> @Model.VisaIssueExpireDate.Value</span>}</label>
+            </div>
+            <div style="border-bottom:1px solid blue;padding-left:10px;">
+                <label>IS THE ABOVE VISA ASSIGNED TO ANOTHER CRUISE LINE ON YOUR VISA – IF SO TO WHOM? <span style="padding-left:20px;color:#56565a;">@Html.DisplayFor(model => model.ToWhomCruise)</span></label>
+            </div>
+            <div style="border-bottom:1px solid blue;padding-left:10px;">
+                <label>DO YOU HAVE ANY KNOWN RESTRICTIONS AS TO ENTRY INTO COUNTRIES? @if (Model != null && Model.IsKnowRestrictions)
+                { <label>Yes @Html.RadioButtonFor(model => model.IsKnowRestrictions, true)  No @Html.RadioButtonFor(model => model.IsKnowRestrictions, false)</label>}
+                else
+                { <label>Yes@Html.RadioButtonFor(model => model.IsKnowRestrictions, false)  No@Html.RadioButtonFor(model => model.IsKnowRestrictions, true)</label>}
+                 </label>
+            </div>
+            <div style="border-bottom:1px solid blue;padding-left:10px;">
+                <label>IF YES WHICH COUNTRIES AND WHY?<span style="padding-left:20px;color:#56565a;">@Html.DisplayFor(model => model.IssuingAuthority)</span> </label>
+            </div>
+            <div style="border-bottom:1px solid blue;padding-left:10px;">
+                <label style="font-size:13px;font-weight:800;">SEAMANS BOOK </label>
+            </div>
+            <div style="border-bottom:1px solid blue;padding-left:10px;">
+                <label>Do you have a Seaman’s Book: @if (Model != null && Model.IsSeamanBook)
+                { <label>Yes @Html.RadioButtonFor(model => model.IsSeamanBook, true)  No @Html.RadioButtonFor(model => model.IsSeamanBook, false)</label>}
+                else { <label>Yes @Html.RadioButtonFor(model => model.IsSeamanBook,false)  No @Html.RadioButtonFor(model => model.IsSeamanBook,true)</label>}</label>
+            </div>
+            <div style="border-bottom:1px solid blue;padding-left:10px;">
+                <label>If yes, what is the issuing Authority?<span style="padding-left:20px;color:#56565a;">@Html.DisplayFor(model => model.IssuingAuthority)</span> </label>
+            </div>
+            <div style="border-bottom:1px solid blue;padding-left:10px;">
+                <label>Expiry Date: @if (Model != null && Model.SeamanExpiryDate.HasValue) { <span><span style="padding-left:20px;color:#56565a;">@Html.DisplayFor(model => model.SeamanExpiryDate)</span></span>}</label>
+            </div>
+            <div style="border-bottom:1px solid blue;padding-left:10px;">
+                <label style="font-size:13px;font-weight:800;">TAX INFORMATION</label>
+            </div>
+            <div style="border-bottom:1px solid blue;padding-left:10px;">
+                <label>  Are you a US Citizen? @if (Model != null && Model.IsUsCitizen)
+                { <label>Yes @Html.RadioButtonFor(model => model.IsUsCitizen, true) No @Html.RadioButtonFor(model => model.IsUsCitizen, false)</label>}
+                    else
+                    { <label>Yes @Html.RadioButtonFor(model => model.IsUsCitizen, false) No @Html.RadioButtonFor(model => model.IsUsCitizen, true)</label>} 
+                </label>
+                <br />
+                <label>Are you a US Resident Alien? @if (Model != null && Model.IsUsResident)
+                { <label>Yes @Html.RadioButtonFor(model => model.IsUsResident, true) No @Html.RadioButtonFor(model => model.IsUsResident, false)</label>}
+                else
+                { <label>Yes @Html.RadioButtonFor(model => model.IsUsResident, false) No @Html.RadioButtonFor(model => model.IsUsResident, true)</label>}
+                </label>
+                <br />
+                <label>Alien card number (if yes):<span style="padding-left:20px;color:#56565a;">@Html.DisplayFor(model => model.ARC) </span> </label>
+              <br />
+                <label>Social Security # (  &nbsp;<span style="padding-left:20px;color:#56565a;">@Html.DisplayFor(model => model.SSN) &nbsp; )</span></label>
+                <br />
+                <label style="font-size: 10px;"> ALL CITIZENS AND PERMANENT RESIDENTS OF THE UNITED STATES OF AMERICA WILL RECEIVE A 1099 TAX REPORT AT THE END OF THE TAX YEAR. CITIZENS OF OTHER COUNTRIES WILL BE RESPONSIBLE FOR REPORTING THEIR INCOME TO THEIR COUNTRY’S TAX DEP’T</label>
+             </div>
+            <div style="border-bottom:1px solid blue;padding-left:10px;">
+                <label style="font-size:13px;font-weight:800;">DATE FORM COMPLETED  <span style="padding-left:20px;color:#56565a;">@Html.DisplayFor(model => model.FormCompleteDate)</span></label>
+            </div>
+        </div>
+    </div> 
+    <div class="row" style="width:100%;margin-top:40px;">
+    <h4 style="text-align:center;width:100%;display:block">PLEASE COMPLETE ELECTRONICALLY</h4>
+    </div>
+</div>

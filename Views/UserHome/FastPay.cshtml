@@ -1,0 +1,177 @@
+﻿@model CruiseEntertainmentManagnmentSystem.ViewModel.FastPayFormViewModel
+@{
+  Layout="";
+}
+
+<div class="container" id="FasTPay">
+    @Html.HiddenFor(model=>model.PersonID)
+    @Html.HiddenFor(model => model.ID)
+    <div class="row">
+        <div class="col-md-3"><img src="~/Images/User/NCL-1.jpg" alt="" class="fastpay-img"/></div>
+        <div class="col-md-3 col-md-offset-6 text-right"><img src="~/Images/User/NCL-2.jpg" alt="" class="fastpay-img"/></div>
+    </div>
+    <div class="row">
+        <div class="col-md-12"><h4 class="text-center fastpay-header">Fast Pay System</h4>
+        <p>
+            In order to pay our business partners in a more expedient fashion, we are setting up a “Fast Pay” system, whereby we plan to transfer funds electronically, instead of processing the customary check. This should speed up processing time.
+
+          </p>
+          <p>
+                Please kindly submit the following information to:<a href=""> icharvey@ncl.com</a> as soon as possible:
+
+          </p>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-12">
+            <form action="">
+                <div>
+                    <div class="row form-group">
+                        <label class="control-label col-md-3 text-left">Vendor Name:</label>
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(model=>model.FullName,new { @class= "form-control" })
+                            @*<input type="text" class="form-control"/>*@
+                        </div>
+                    </div>
+         
+                    <div class="row form-group">
+                        <label class="control-label col-md-3 text-left">Vendor Address:</label>
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(model=>model.Address,new { @class="form-control"})
+                            @*<input type="text" class="form-control" />*@
+                        </div>
+                    </div>
+    
+                    <div class="row form-group">
+                        <label class="control-label col-md-3 text-left">Vendor City/ST/Zip:</label>
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(model => model.CityState, new { @class = "form-control" })
+                            @*<input type="text" class="form-control" />*@
+                        </div>
+                    </div>
+            
+                    <div class="row form-group">
+                        <label class="control-label col-md-3 text-left">Vendor Country (if not USA):</label>
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(model => model.Country, new { @class = "form-control" })
+                            @*<input type="text" class="form-control" />*@
+                        </div>
+                    </div>
+         
+                    <div class="row form-group">
+                        <label class="control-label col-md-3 text-left">Vendor Phone #:</label>
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(model => model.Phone, new { @class = "form-control" })
+                            @*<input type="text" class="form-control" />*@
+                        </div>
+                    </div>
+         
+                    <div class="row form-group">
+                        <label class="control-label col-md-3 text-left">Contact Name:</label>
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(model => model.ContactName, new { @class = "form-control" })
+                            @*<input type="text" class="form-control" />*@
+                        </div>
+                    </div>
+          
+                    <div class="row form-group">
+                        <label class="control-label col-md-3 text-left">Bank Name:</label>
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(model => model.BankName, new { @class = "form-control" })
+                            @*<input type="text" class="form-control" />*@
+                        </div>
+                    </div>
+        
+                    <div class="row form-group">
+                        <label class="control-label col-md-3 text-left">Bank Address/City/ST/Zip:</label>
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(model => model.BankAddress, new { @class = "form-control" })
+                            @*<input type="text" class="form-control" />*@
+                        </div>
+                    </div>
+           
+                    <div class="row form-group">
+                        <label class="control-label col-md-3 text-left">Bank Phone number:</label>
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(model => model.BankPhoneNumber, new { @class = "form-control" })
+                            @*<input type="text" class="form-control" />*@
+                        </div>
+                    </div>
+             
+                    <div class="row form-group">
+                        <label class="control-label col-md-3 text-left">Bank Account #:</label>
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(model => model.BankAccount, new { @class = "form-control" })
+                            @*<input type="text" class="form-control" />*@
+                        </div>
+                    </div>
+     
+                    <div class="row form-group">
+                        <label class="control-label col-md-3 text-left">Bank Routing #:</label>
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(model => model.BankRouting, new { @class = "form-control" })
+                            @*<input type="text" class="form-control" />*@
+                        </div>
+                    </div>
+       
+                    <div class="row form-group">
+                        <label class="control-label col-md-3 text-left">Name as it appears on Bank Account:</label>
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(model => model.NameInBank, new { @class = "form-control" })
+                            @*<input type="text" class="form-control" />*@
+                        </div>
+                    </div>
+        
+                    <div class="row form-group">
+                        <label class="control-label col-md-3 text-left">Email address to confirm  transfer of funds:</label>
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
+                            @*<input type="text" class="form-control" />*@
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                           
+                            <label>Printed Name</label>
+                            @Html.TextBoxFor(model => model.PrintedName, new { @class = "form-control" })
+                            @*<input type="text" />*@
+                        </div>
+                        <div class="col-md-6">
+                           
+                            <label>Approval Signature</label>
+                            <input type="text" />
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<script src="~/Scripts/Common.js"></script>
+<script>
+    //$(document).on('click', '#btnPrint', function () {        
+    //    //showLoadingDiv();
+    //    window.open('/UserHome/FastPayFormPDF?option=1','_blank');
+    //});
+
+    //$(document).on('click', '#btndownload', function () {
+        
+    //});
+
+    //$(document).on('click', '#btnSave', function () {
+
+        
+    //});
+</script>
+
+
+
+
+
+
+
+
+
+

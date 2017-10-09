@@ -1,0 +1,35 @@
+﻿@model CruiseEntertainmentManagnmentSystem.ViewModel.CabinsViewModel
+
+@{
+    ViewBag.Title = "Cabin Details";
+}
+
+<h2>@ViewBag.Title.</h2>
+
+<fieldset>
+    <legend>CabinsViewModel</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CabinName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CabinName)
+    </div>
+     <div class="display-label">
+         @Html.DisplayNameFor(model => model.CabinType)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CabinType)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CategoryName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CategoryName)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

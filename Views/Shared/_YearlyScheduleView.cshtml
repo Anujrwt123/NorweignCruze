@@ -1,0 +1,78 @@
+﻿@model IEnumerable<CruiseEntertainmentManagnmentSystem.Models.CruiseSchedule>
+
+<script>
+
+    $(document).ready(function () {
+
+        
+        var months = ["January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December"
+        ]
+
+        ////debugger;
+        var curDate = new Date();
+        var curyear = curDate.getFullYear();
+        var datestring = "01/01/" + curyear;
+        var startDate = new Date(datestring);
+        var leapyear=((curyear % 4 == 0 && curyear % 100 != 0) || curyear % 400 == 0);
+        var count=365;
+        if(leapyear)
+        {
+            count=366;
+        }
+
+        var htmlString = "<table><tr><th></th>";
+
+        for(i=1;i<=count;i++)
+        {
+            htmlString += "<th class='rotate' ><div><span>" + convertDateToString(startDate) + "</span></div></th>";
+            startDate.AddDays(1);
+        }
+        htmlString += "</tr></table>";
+
+
+        $('#Cal').html(htmlString);
+
+
+
+    });
+
+  
+</script>
+<div>
+    @*@{
+        var curdate = DateTime.Now;
+        var curyear = curdate.Year;
+        var startDate = Convert.ToDateTime("01/01/" + curyear);
+        var leapyear = ((curyear % 4 == 0 && curyear % 100 != 0) || curyear % 400 == 0);
+        var count = 365;
+        if (leapyear)
+        {
+            count = 366;
+        }
+          var htmlString = "<table><tr><th></th>";
+
+        for(i=1;i<=count;i++)
+        {
+            htmlString += "<th class='rotate' ><div><span>" + convertDateToString(startDate) + "</span></div></th>";
+            startDate.AddDays(1);
+        }
+        htmlString += "</tr></table>";
+
+
+        $('#Cal').html(htmlString);
+        
+                
+    }*@
+    
+</div>

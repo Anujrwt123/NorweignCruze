@@ -1,0 +1,327 @@
+﻿/*#container {width:605px}
+table#yearlytable {
+  width:100px;
+  background:#ffffcc;
+  float:left;
+}
+table#data {
+  background:#ffffcc;
+  width:900px;  
+}
+td {
+  border:1px solid red;
+}
+#data td {width:100px;}
+#wrap{
+  width:500px;
+  overflow:auto;
+  overflow-y:hidden;
+  border-right:1px solid red;
+  float:left;
+}*/
+
+#dateportion {
+    width: 100%;
+    height: 500px !important;
+    border: 1px solid #D8CFCF;
+    border-left: none;
+    border-right: none;
+    background: white;
+    margin-top: 1px;
+    font-size: 12px;
+}
+
+#Calendar {
+    width: 100%;
+    /*border:1px solid black;*/
+    height: 60PX;
+    background: white;
+}
+.month-name{
+    background: #320C56;
+    color: white;
+}
+#calT th {
+    text-align: center !important;
+    font-size: 12px;
+    font-weight: 600;
+    color: #B39E9E;
+}
+ #calT   tr{
+   height: 40px;
+    border-bottom: 1px solid #D3CDCD;
+    }
+/*select#Cruise {
+    width: 30%;
+    border-radius: 5px;
+    border: none;
+    height: 25px;
+}*/
+
+#Calendar table {
+    width: 100%;
+    height: inherit;
+    cursor: pointer;
+}
+
+   #Calendar table tr td:hover {
+    background-color: rgba(208, 210, 211, 0.28);
+}
+
+    #Calendar table tr td {
+        text-align: center;
+        width: 167.5px;
+        border-left: 1px solid #F0F0F0;
+        /*border-radius: 100px;*/
+    }
+
+#caltable tr td {
+    background-color: azure;
+    text-align: center;
+    cursor: pointer;
+}
+
+    #caltable tr td:hover {
+        background-color: aquamarine;
+    }
+
+#head tr td:hover {
+    background-color: white;
+}
+   body {
+                /*background-color: #eee;*/
+            }
+
+            .overLay {
+                width: 100%;
+                height: 100%;
+                background: rgba(128, 128, 128, 0.75);
+                position: fixed;
+                z-index: 99;
+            }
+
+           .Datacontainer {
+    width: 61%;
+    height: 68%;
+    background: White;
+    position: fixed;
+    top: 15%;
+    left: 22%;
+    overflow: scroll;
+}
+            .logo{
+                    width: 40%;
+                    margin-left: 16px;
+            }
+            .horizontal-nav{
+                float:left;
+                    padding-top: 50px;
+    font-size: larger;
+    font-weight: 600;
+            }
+
+            .space{
+                padding-right:20px;
+                padding-left:20px;
+            }
+            .page-heading{
+          background:#55C9E9;
+    color: white;
+    padding: 7px;
+        font-size: 16px;        
+    margin-top: 0px;
+        margin-left: -14px;
+    margin-right: -15px;
+            }
+            select{
+                    width: 60%;
+    border-color: #E2E2E2;
+    height:27px;
+    border-radius: 5px;
+            }
+            .pad{
+        padding-top: 10px;
+    padding-bottom: 10px;
+            }
+            select#CabinNo {
+    margin-left: -9px;
+}
+            #pid{
+                width:100%; border:1px Solid #DCD8D8; overflow-y:scroll;  padding:3px 3px 3px 10px;
+                margin-top:20px;
+            }
+            #loading{
+    display:none;float: left;
+    width: 71.6%;
+    height: 425px;
+    border: 1px solid;
+    position: absolute;
+    z-index: 99999;
+    text-align: center;
+    padding-top: 182px;
+    background: rgba(128, 128, 128, 0.46);
+            }
+input[type=checkbox], input[type=radio] {
+    margin: 4px 0 0;
+    width: 17%!important;
+}
+.tab-header{
+    color: #11A8F6;
+    font-weight: 600;
+    border-right: 1px solid #D5C4C4;
+}
+.header-bg{
+    background: #C0E3F6;
+}
+.right-border{
+        border-right: 1px solid #CECACA;
+}
+.less-space{
+    padding-right:10px;
+}
+.create-link{
+    background-color: #55C9E9;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding: 6px;
+    margin-left: 9px;
+    border-radius: 3px;
+    font-size:12px;
+}
+a.create-link{
+    color:white!important;
+}
+.create-link:hover{
+     text-decoration:none;
+     background-color:#40BEE0;
+     color:white!important;
+     /*border: 1px solid #55C9E9;*/
+}
+
+.available{
+    width:20px;height:20px;background-color:#D1FEE5;border: 1px solid #C0B9B9;
+}
+.occupied{
+    width:20px;height:20px;background-color:#FFC7C5;border: 1px solid #C0B9B9;
+}
+.grey{
+    color:#ABA6A6;
+}
+.cal-div{
+    margin-right: 24px;
+    margin-left: -15px;
+}
+.popup-heading{
+     background: #5192CB;
+    color: white;
+    text-align: center;
+    padding-bottom: 5px;
+    box-shadow: 0 0 10px #ADA8A8;
+    padding-bottom: 10px!important;
+    padding-top: 10px!important;
+}
+input#offbtn,#btnSaveSubSchedule,#btnAddSchedule {
+    background: #5192CB;
+    width: 18%;
+    color: white;
+    padding-bottom: 2px;
+    box-shadow: 0 0 3px #9C9393;
+}
+.wrap-content{
+    width:100%;
+}
+input#tskbtn {
+    background: #5192CB;
+    color: white;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.text {
+    color: #5192CB;
+    font-size: small;
+    font-weight: 700;
+}
+   .date{
+     color: #979593;
+    /*margin-top: 10px;*/
+   } 
+   .popup-btn{
+
+    background: #5192CB;
+    width: 18%;
+    color: white;
+    padding-bottom: 2px;
+    box-shadow: 0 0 3px #9C9393;
+   }
+   span#strtDate {
+    color: #726C6C;
+    font-size: small;
+    font-weight: 700;
+}
+   span#endDate {
+    color: #726C6C;
+    font-size: small;
+    font-weight: 700;
+}
+   input#sunchkbx {
+    width: 37%!important;
+}
+   table#offTable {
+    width: 100%;
+    border-color: #DEDEDE;
+    text-align: center;
+    color: #67A3D7;
+}
+ table.data tr td:last-child {
+     border-right:1px solid #F0F0F0;
+}
+ input.offchk {
+    height: 14px;
+}
+ input.edit {
+    background: #5192CB;
+    color: white;
+    padding-left: 15px;
+    padding-right: 15px;width:100%;
+}
+ input#btnSubSchedule {
+    background: #5192CB;
+    color: white;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+ #cal tr {
+    border-bottom: 1px solid #F3ECEC;
+}
+ #cal th {
+    text-align: center;
+}
+ table#TaskTable th {
+    text-align: center;
+    color: #6F7173;
+}
+ a#cancelBtn {
+    font-size: 12px;
+    color: #5192CB;
+    font-weight: 700;
+}
+ a#updatebtn {
+    font-size: 12px;
+    color: #5192CB;
+    font-weight: 700;
+}
+ span.mrgn {
+   margin-left: 5px;
+   margin-right: 5px;
+   color: #5192CB;
+}
+ #databox a{
+     color:#828282;
+ }
+  #databox a:hover{
+     color:#55C9E9;
+ }
+  .pagination>.active>span {
+    background-color: #55C9E9!important;
+    border-color: #55C9E9!important;
+}

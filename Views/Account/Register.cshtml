@@ -1,0 +1,41 @@
+﻿@model CruiseEntertainmentManagnmentSystem.Models.RegisterModel
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Account/_Layout.cshtml";
+}
+
+
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+
+    <fieldset>
+        <legend>Registration Form</legend>
+        <div style="width:400px;">
+            <ul class="nonbullet">
+                <li>
+                    @*@Html.LabelFor(m => m.UserName)*@
+                    <input type="text" class="form-control login-input" placeholder="Username" id="UserName" name="UserName">
+                    @*@Html.TextBoxFor(m => m.UserName)*@
+                </li>
+                <li>
+                    @*@Html.LabelFor(m => m.Password)*@
+                    <input type="password" class="form-control login-input" placeholder="Password" id="Password" name="Password">
+                    @*@Html.PasswordFor(m => m.Password)*@
+                </li>
+                <li>
+                    @*@Html.LabelFor(m => m.ConfirmPassword)*@
+                    <input type="password" class="form-control login-input" placeholder="ConfirmPassword" id="ConfirmPassword" name="ConfirmPassword">
+                    @*@Html.PasswordFor(m => m.ConfirmPassword)*@
+                </li>
+                <li><input type="submit" value="Register" class="register" /></li>
+            </ul>
+            
+        </div>
+    </fieldset>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

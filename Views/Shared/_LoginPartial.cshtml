@@ -1,0 +1,22 @@
+﻿@if (Request.IsAuthenticated) {
+    <text>
+
+<div class="col-md-6"><span class="glyphicon glyphicon-user user-icon" aria-hidden="true"></span> <span class="ActiveUser">Hello , @User.Identity.Name ! </span></div>
+        @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" })) {
+            @Html.AntiForgeryToken()
+            <div class="col-md-6">
+                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>  <a href="javascript:document.getElementById('logoutForm').submit()" style="color:#55C9E9">Log off</a>
+                <div class="row">
+                    <div class="col-md-12">
+                        <a href="#" id="changepassword">Change Password</a>
+                    </div>
+                </div>              
+            </div>
+        }
+        </text>
+} else {
+<ul class="nonbullet">
+    <li class="horizontal-nav">@*@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })*@ <a href="#" id="registerLink">Register</a><span class="space">|</span></li>
+    <li class="horizontal-nav">@*@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })*@<a href="#" id="loginLink" style="color:#55C9E9">Login</a></li>
+</ul>
+}

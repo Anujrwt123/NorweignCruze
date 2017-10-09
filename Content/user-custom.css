@@ -1,0 +1,19 @@
+﻿.nav-tabs>li>a {
+    padding: 4px 15px!important;
+    margin-top:20px;
+    background: #55c9e9;
+    color: white!important;
+}
+.nav-tabs > li > a:hover {
+        background:#616871!important;
+}
+.nav-tabs li.active a{
+    background:#49505a!important;
+}
+.print a{
+    padding-left:6px;
+    padding-right:6px;
+}
+.print span{
+    padding-right:10px;
+}

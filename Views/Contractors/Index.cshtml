@@ -1,0 +1,124 @@
+﻿@*@model IEnumerable<CruiseEntertainmentManagnmentSystem.Models.Contractor>*@
+
+
+<style>
+
+    .tabbtn{
+    width: 86px;
+    margin-bottom: 0px;
+    margin-right: 0px;
+    border-radius: 0;
+    border: 0px;
+    /*border-right: 5px solid #FFFFFF;*/
+    background: #828282;
+    color: white;
+    border-top-left-radius:3px;
+    border-top-right-radius:3px;
+    }
+    .dynamic{
+    background:aliceblue;
+    color:#5692D1;
+    border:1px solid #BBB4B4;
+    border-top-left-radius:3px;
+    border-top-right-radius:3px;
+    border-bottom:0px;
+    margin-right: 0px;
+    }
+</style>
+
+
+@{
+    ViewBag.Title = "Contractors";
+}
+
+<div class="row">
+
+    <h3 class="text-center page-heading">@ViewBag.Title</h3>
+
+    <div style="border-bottom: 1px solid #DEDDDD;height:38px;vertical-align:top;" id="tab">
+        <input type="button" value="Wardrobe" id="btnWardrobe" class="tabbtn" />
+        <input type="button" value="Production" id="btnProduction" class="tabbtn" />
+        <input type="button" value="Creatives" id="btnDirectors" class="tabbtn" />
+        <input type="button" value="Designers" id="btndesigners" class="tabbtn" />
+        @*<input type="button" value="NCL" id="btnNCL" class="tabbtn" />
+        <input type="button" value="REGENT" id="btnRegent" class="tabbtn" />
+        <input type="button" value="OCEANA" id="btnOceana" class="tabbtn" />*@
+    </div>
+    <br />
+    <a href="#" onclick="goToCreate('/Contractors/Create?option=@ViewBag.Option')" class="create-link" id="createnew">Create New</a>
+       @*@Html.ActionLink("Create New", "Create", null, new { @class = "create-link" })*@
+   
+    <div id="dataContainer">
+        @Html.Action("Contractors",new{option=@ViewBag.Option})
+    </div>
+
+
+</div>
+<script>
+    $(document).ready(function () {
+        debugger;
+        var url = window.location.href;
+        if (url.indexOf('?') > -1)
+        {
+            var splittURL = url.split('?');
+            var idx = splittURL[1].indexOf('Type');
+            if(idx>-1)
+            {
+                var type = splittURL[1].substr(idx, 6);
+                var typesplit = type.split('=');
+                $('#tab input[type="button"]').removeClass('tabactive');
+                if(typesplit[1]==1)
+                {                    
+                    $('#btnWardrobe').addClass("tabactive");
+                }
+                else if (typesplit[1] == 2) {
+                    $('#btnProduction').addClass("tabactive");
+                }
+                else if (typesplit[1] == 3)
+                {
+                    $('#btnDirectors').addClass("tabactive");
+                }
+                else if (typesplit[1] == 4) {
+                    $('#btndesigners').addClass("tabactive");
+                }
+                else if (typesplit[1] == 5) {
+                    $('#btnNCL').addClass("tabactive");
+                }
+                else if (typesplit[1] == 6) {
+                    $('#btnRegent').addClass("tabactive");
+                }
+                else if (typesplit[1] == 7) {
+                    $('#btnOceana').addClass("tabactive");
+                }
+            }
+            
+        }
+        else
+        {
+            $('#btnWardrobe').addClass("tabactive");
+        }
+        //var splitURL = url.split('?');
+        //if (splitURL.count)
+        //$('#btnWardrobe').click(function(){
+        //    $('#btnWardrobe').toggleClass("dynamic");
+        //    $('#btnDirectors').removeClass("dynamic");
+        //    $('#btnProduction').removeClass("dynamic");
+        //});
+        //$('#btnProduction').click(function () {
+        //    $('#btnWardrobe').removeClass("dynamic");
+        //    $('#btnProduction').addClass("dynamic");
+        //    $('#btnDirectors').removeClass("dynamic");
+        //});
+        //$('#btnDirectors').click(function () {
+        //    $('#btnWardrobe').removeClass("dynamic");
+        //    $('#btnProduction').removeClass("dynamic");
+        //    $('#btnDirectors').addClass("dynamic");
+        //});
+    });
+</script>
+
+
+
+
+
+

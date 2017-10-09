@@ -1,0 +1,52 @@
+﻿@model CruiseEntertainmentManagnmentSystem.Models.Shows
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <h4 class="page-heading text-center">Shows</h4>
+</div>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset style="margin :10px;">
+
+        @Html.HiddenFor(model => model.ID)
+        <div class="row">
+            <div class="col-md-5">
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Name)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.Name)
+                    @Html.ValidationMessageFor(model => model.Name)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Ship)
+                </div>
+                <div class="editor-field">
+                    @Html.DropDownList("ship")
+                    @Html.ValidationMessageFor(model => model.Ship)
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <input type="submit" value="Save" class="btn" style="margin-left: 19px;" /><span></span>@*@Html.ActionLink("Back to List", "Index")*@
+
+
+
+
+            <a href="#" onclick="goToPrevious('@ViewBag.ReturnUrl')">cancel</a>
+        </div>
+        <br />
+    </fieldset>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

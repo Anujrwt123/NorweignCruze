@@ -1,0 +1,285 @@
+﻿@model CruiseEntertainmentManagnmentSystem.Models.Persons
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<link href="~/Content/bootstrap-colorpicker.min.css" rel="stylesheet" />
+<script src="~/Scripts/bootstrap-colorpicker.min.js"></script>
+
+<style>
+    .colorpicker-2x .colorpicker-saturation {
+        width: 100px;
+        height: 100px;
+    }
+
+    .colorpicker-2x .colorpicker-hue,
+    .colorpicker-2x .colorpicker-alpha {
+        width: 30px;
+        height: 100px;
+    }
+
+    .colorpicker-2x .colorpicker-color,
+    .colorpicker-2x .colorpicker-color div {
+        height: 20px;
+    }
+</style>
+
+ 
+<div class="row">
+    <h4 class="page-heading text-center">Persons</h4>
+</div>
+@using (Html.BeginForm("Edit", "Persons", FormMethod.Post, new { onsubmit = "checkCategory()" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset style="margin: 10px;">
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.FirstName)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.FirstName)
+                        @Html.ValidationMessageFor(model => model.FirstName)
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.LastName)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.LastName)
+                        @Html.ValidationMessageFor(model => model.LastName)
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Alias)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.Alias)
+                        @Html.ValidationMessageFor(model => model.Alias)
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.UserName)
+                    </div>
+                    <div class="editor-field">
+                        @Html.TextBoxFor(model => model.UserName, new { style = "width: 150px !important;" })
+                        
+                        @*@Html.EditorFor(model => model.UserName)*@
+                        <a id="btncheck">Check</a>
+                        <div class="row">
+                            @Html.ValidationMessageFor(model => model.UserName)
+                            <span style="color:red" id="error"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Password)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.Password)
+                        @Html.ValidationMessageFor(model => model.Password)
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="editor-label">
+                        <label>Confirm Password</label>
+                     </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.RePassword)
+                        @Html.ValidationMessageFor(model => model.RePassword)
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Phone)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.Phone)
+                        @Html.ValidationMessageFor(model => model.Phone)
+                    </div>
+                </div>
+                <div class="row">
+                   
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Email)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.Email)
+                        @Html.ValidationMessageFor(model => model.Email)
+                    </div>
+                </div>
+                <div class="row">
+                    
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.SSN)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.SSN)
+                       
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Address)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.Address)
+                        @Html.ValidationMessageFor(model => model.Address)
+                    </div>
+                </div>
+               
+                <div class="row">
+
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.City)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.City)
+                        @Html.ValidationMessageFor(model => model.City)
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row">
+
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Position)
+                    </div>
+                    <div class="editor-field">
+                        @Html.DropDownList("Position", "select")
+                        @Html.ValidationMessageFor(model => model.Position)
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.State)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.State)
+                        @Html.ValidationMessageFor(model => model.State)
+                    </div>
+                </div>
+                <div class="row">
+                   
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Zip)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.Zip)
+                        @Html.ValidationMessageFor(model => model.Zip)
+                    </div>
+                </div>
+                <div class="row">
+                   
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.DayRate)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.DayRate)
+                        @Html.ValidationMessageFor(model => model.DayRate)
+                    </div>
+                </div>
+                <div class="row">
+                   
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.WeeklySalary)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.WeeklySalary)
+                        @Html.ValidationMessageFor(model => model.WeeklySalary)
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Color)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.Color, new { @class = "colorpicker-2x" })
+                        @Html.ValidationMessageFor(model => model.Color)
+                    </div>
+                </div>
+                <div class="row">
+
+                   
+                    <input type="hidden" id="CategoryList" name="CategoryList" />
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Category)
+                    </div>
+
+                    <div class="PersonCategoryBox">
+                        @if (ViewBag.Categories != null)
+                        {
+                            <ul id="categories" >
+                                @foreach (var item in ViewBag.Categories)
+                                {
+                                    <li >
+                                        <div><input type="checkbox" checked="@item.Checked" value="@item.ID" class="person-checkbox" style=" width: 6% !important;" /><span class="chkbox-label">@item.Name</span></div>
+                                    </li>
+
+                                }
+                            </ul>
+                        }
+
+                        @*@Html.Action("GetCategories")*@
+
+                        @*@Html.DropDownList("Category", "--Select--")
+                        @Html.ValidationMessageFor(model => model.Category)*@
+                    </div>
+                </div>
+            
+            </div>
+        </div>
+
+    </fieldset>
+
+    <div class="row">
+        <input type="submit" value="Save" class="btn" style=" margin-left: 19px;" /><span></span>@*@Html.ActionLink("Back to List", "Index")*@
+        <a href="#" onclick="goToPrevious('@ViewBag.ReturnUrl')">cancel</a>
+
+    </div>
+    <br /><br />
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+<script>
+   
+</script>
+
+<script>
+    $(function () {
+        $('#Color').colorpicker({
+            customClass: 'colorpicker-2x',
+            sliders: {
+                saturation: {
+                    maxLeft: 200,
+                    maxTop: 200
+                },
+                hue: {
+                    maxTop: 200
+                },
+                alpha: {
+                    maxTop: 200
+                }
+            }
+        });
+    });
+</script>
+
+}
+

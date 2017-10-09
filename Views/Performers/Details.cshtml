@@ -1,0 +1,35 @@
+﻿@model CruiseEntertainmentManagnmentSystem.ViewModel.PerformerViewmodel
+
+@{
+    ViewBag.Title = "Performer Details";
+}
+
+<h2>@ViewBag.Title.</h2>
+
+<fieldset>
+    <legend>PerformerViewmodel</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Alias)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Alias)
+    </div>
+     <div class="display-label">
+         @Html.DisplayNameFor(model => model.GroupName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.GroupName)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

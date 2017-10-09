@@ -1,0 +1,437 @@
+﻿@model CruiseEntertainmentManagnmentSystem.ViewModel.NewVendorViewModel
+@{ 
+    Layout = "";
+    }
+<style>
+    input[type=radio]
+    {
+        width:15%!important;
+    } 
+</style>
+<div class="container" id="NewVendor">
+    @if (Model != null)
+    {
+        @Html.HiddenFor(model=>model.ID)
+        @Html.HiddenFor(model => model.PersonID)
+    }
+    
+    <div class="row">
+        <div class="col-md-12">
+         <label class="pull-right" style="text-decoration:underline">(Internal Use Only)</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h4 class="text-center fastpay-header">NEW VENDOR REQUEST / VENDOR INFORMATION CHANGE</h4>
+            <p class="bold-para">
+                This form is to be used when an employee, with purchasing capacity and authority, has identified
+                 a New Vendor for the best of Norwegian Cruise Line Holdings Inc.  New Vendor Request and Vendor 
+                Information Change require approval of Accounts Payable Department. Please contact the Accounts
+                 Payable Department if you require assistance with this form.
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h5 class="info">GENERAL INFORMATION</h5>
+            <div class="row">
+                <div class="col-md-3 col-md-offset-1">
+                    @Html.RadioButtonFor(model=>model.IsNewVendor,"0")
+                    @*<input type="checkbox" value="newVendor" name="vendor"/>*@
+                    <label>New Vendor</label>
+                </div>
+                <div class="col-md-3">
+                    @Html.RadioButtonFor(model => model.IsNewVendor, "1")
+                    <label>Existing Vendor</label>
+                </div>
+                <div class="col-md-5">
+                    <div class="row">
+                        <label class="col-md-4">Date Of Request</label>
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(model=>model.DateOfRequest,new { @class="date"})
+                        </div>                      
+                    </div>               
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h5 class="info">VENDOR INFORMATION</h5>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-4"><label>Company Name</label></div>
+                    <div class="col-md-8">@Html.TextBoxFor(model=>model.CompanyName)</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4"><label>Tax ID Number</label></div>
+                    <div class="col-md-8">@Html.TextBoxFor(model=>model.TaxIdNumber)</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4"><label>Contact Name</label></div>
+                    <div class="col-md-8">@Html.TextBoxFor(model=>model.ContactName)</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4"><label>Contact Title</label></div>
+                    <div class="col-md-8">@Html.TextBoxFor(model=>model.ContactTitle)</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4"><label>E-mail</label></div>
+                    <div class="col-md-8">@Html.TextBoxFor(model=>model.Email)</div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-4"><label>Address</label></div>
+                    <div class="col-md-8">@Html.TextBoxFor(model=>model.Address)</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4"><label>Phone Number</label></div>
+                    <div class="col-md-8">@Html.TextBoxFor(model=>model.PhoneNumber)</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4"><label>Website</label></div>
+                    <div class="col-md-8">@Html.TextBoxFor(model=>model.Website)</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h5 class="info">BUSINESS PURPOSE</h5>
+            <div class="row">
+                <div class="col-md-3"><label>Payment Terms</label></div>
+                <div class="col-md-9">@Html.TextBoxFor(model=>model.PaymentTerms)</div>
+            </div>
+            <div class="row">
+                <div class="col-md-3"><label>Requested method of payment</label></div>
+                <div class="col-md-3">
+                    @Html.RadioButtonFor(model=>model.RequestMode,"1")
+                    <label>Check</label>
+                </div>
+                <div class="col-md-3">
+                    @Html.RadioButtonFor(model => model.RequestMode, "2")
+                    <label>ACH</label>
+                </div>
+                <div class="col-md-3">
+                    @Html.RadioButtonFor(model => model.RequestMode, "3")
+                    <label>Wire Transfer(Foreign Corps. Only)</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <label>If requested method of payment is by ACH or wire transfer, please provide following:</label>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-4"><label>Bank Name</label></div>
+                                <div class="col-md-8">@Html.TextBoxFor(model=>model.BankName)</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4"><label>Bank ABA Number (if U.S. Bank)</label></div>
+                                <div class="col-md-8">@Html.TextBoxFor(model=>model.ABANumber)</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-4"><label>Bank Account Number</label></div>
+                                <div class="col-md-8">@Html.TextBoxFor(model=>model.BankAccountNumber)</div>
+                            </div>                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <label>If requested method of payment is by wire transfer, please provide following in additiona to above information:</label>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-4"><label>Swift Code</label></div>
+                                <div class="col-md-8">@Html.TextBoxFor(model => model.SwiftCode)</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-4"><label>IBAN Number (when applicable)</label></div>
+                                <div class="col-md-8">@Html.TextBoxFor(model => model.IBANNumber)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <label>If method of payment is to be made by ACH or wire transfer, have payment instructions been received including applicable banking information on the vendor’s company letterhead?</label>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>(signed by an approved officer of the vendor's company)</label>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="row">
+                                @Html.RadioButtonFor(model => model.IsSignedOff,"1")
+                             <label>Yes</label>                            
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="row">
+                                @Html.RadioButtonFor(model => model.IsSignedOff, "0")
+                              <label>No</label>                             
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <label class="for-vendor">For U.S. vendors only</label>
+                    <div class="row">
+                        <div class="col-md-4"><label>Is IRS Form W-9 attached?</label></div>
+                        <div class="col-md-3">
+                            <div class="row">
+                                @Html.RadioButtonFor(model => model.IsIRSW9Attached, "1")
+                               <label>Yes</label>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                              <div class="row">
+                                @Html.RadioButtonFor(model => model.IsIRSW9Attached, "0")
+                              <label>No</label>                        
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5 col-md-offset-2">
+                            <div class="row">
+                                <div class="col-md-4"><label>Prepared by:</label></div>
+                                <div class="col-md-8">@Html.TextBoxFor(model=>model.PreparedBy)</div>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="row">
+                                <div class="col-md-4"><label>Department:</label></div>
+                                <div class="col-md-8">@Html.TextBoxFor(model => model.Department)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <label>I hereby certify that, to the best of my knowledge, the above information is accurate and request that New Vendor or Change of Existing Vendor Information be approved.</label>
+                    <div class="row">
+                        <div class="col-md-5 col-md-offset-2">
+                            <div class="row">
+                                <div class="col-md-4"><label>Approved by:</label></div>
+                                <div class="col-md-8">@Html.TextBoxFor(model => model.ApprovedBy)</div>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="row">
+                                <div class="col-md-4"><label>Date:</label></div>
+                                <div class="col-md-8">@Html.TextBoxFor(model => model.Date,new { @class="date"})</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2 col-md-offset-2">
+                            <label>Signature:</label>
+                        </div>
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(model => model.Signature)
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <label>Fill out form online, print and return it with all corresponding documents to Accounts Payable Department. Please contact Accounts Payable Department if you require assistance with this form.</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h4 class="reserved">RESERVED FOR ACCOUNT PAYABLE SUPERVISOR AND AUTHORIZED TREASURY ONLY</h4>
+                </div>
+                <div class="row">
+                    <label>Was vendor name checked prior to setting up the new vendor to ensure that an active vendor account does not already exist?</label>
+                    <div class="row">
+                        <div class="col-md-2 col-md-offset-2">
+                            <div class="row">
+                                @Html.RadioButtonFor(model => model.IsVendorNameChecked,"0")
+                               <label>Yes</label>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="row">
+                                @Html.RadioButtonFor(model => model.IsVendorNameChecked, "1")
+                                <label>No</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label>A 'Yes' answer is required prior to sign-off by A/P Supervisor.</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <label>For non employee vendors, was vendor address checked against employee master file to ensure payment is not routed to an employee residential address?</label>
+                    <div class="row">
+                        <div class="col-md-2 col-md-offset-2">
+                            <div class="row">
+                                @Html.RadioButtonFor(model => model.IsVendorAddressChecked, "1")
+                                <label>Yes</label>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="row">
+                                @Html.RadioButtonFor(model => model.IsVendorAddressChecked, "0")
+                                <label>No</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label>A 'Yes' answer is required prior to sign-off by A/P Supervisor.</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                      
+                        <div class="row">
+                            <div class="col-md-6 col-md-offset-1">
+                                <div class="row">
+                                    <div class="col-md-6"><label>Reviewed by (A/P Supervisor):</label></div>
+                                    <div class="col-md-6">@Html.TextBoxFor(model=>model.ReviewedByForName,new { @class= "yellow-textbox" })</div>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="row">
+                                    <div class="col-md-2"><label>Date:</label></div>
+                                    <div class="col-md-8">@Html.TextBoxFor(model => model.DateForName, new { @class = "yellow-textbox date" })</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2 col-md-offset-2">
+                                <label>Signature:</label>
+                            </div>
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(model => model.ForNameSignature)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <label>Was new vendor created in People Soft?</label>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2 col-md-offset-2">
+                            <div class="row">
+                                @Html.RadioButtonFor(model => model.IsCreatedinPplSoft,"1")
+                                <label>Yes</label>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="row">
+                                @Html.RadioButtonFor(model => model.IsCreatedinPplSoft, "0")
+                                <label>No</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label>A 'Yes' answer is required prior to final sign-off by A/P Supervisor.</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <div class="row">
+                            <div class="col-md-6 col-md-offset-1">
+                                <div class="row">
+                                    <div class="col-md-6"><label>Reviewed by (A/P Supervisor):</label></div>
+                                    <div class="col-md-6">@Html.TextBoxFor(model => model.ReviewedByforPPlsoft,new { @class= "yellow-textbox" })</div>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="row">
+                                    <div class="col-md-2"><label>Date:</label></div>
+                                    <div class="col-md-8">@Html.TextBoxFor(model => model.ReviewDateforPPlsoft, new { @class = "yellow-textbox date" })</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2 col-md-offset-2">
+                                <label>Signature:</label>
+                            </div>
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(model => model.ForPPLSoftSignature)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <div class="row">
+                            <div class="col-md-6 col-md-offset-1">
+                                <div class="row">
+                                    <div class="col-md-6"><label>Reviewed by (Authorized Treasury):</label></div>
+                                    <div class="col-md-6">@Html.TextBoxFor(model => model.ReviewedByForAuthT, new { @class = "yellow-textbox" })</div>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="row">
+                                    <div class="col-md-2"><label>Date:</label></div>
+                                    <div class="col-md-8"><div class="col-md-6">@Html.TextBoxFor(model => model.DateForAuthT, new { @class = "yellow-textbox date" })</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2 col-md-offset-2">
+                                <label>Signature:</label>
+                            </div>
+                            <div class="col-md-8">
+                              @Html.TextBoxFor(model => model.ForAuthTsignature)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/Common.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $(".date").datepicker({
+                changeMonth: true,//this option for allowing user to select month
+                changeYear: true //this option for allowing user to select from year range
+            });
+        });
+
+        //$(document).on('click', '#btnPrint', function () {
+
+        //    window.open("/userhome/NewVendorFormPDF?option=1", "_blank");
+        //});
+
+        //$(document).on('click', '#btndownload', function () {
+           
+        //});
+
+        //$(document).on('click', '#btnSave', function () {
+            
+        //});
+
+      
+
+    </script>
+
+
+
+			
+			
+
+

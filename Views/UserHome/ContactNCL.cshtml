@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "ContactNCL";
+    Layout ="~/Views/Shared/_UserLayout.cshtml";
+}
+<div class="NCL-contact">
+    <div class="row">
+       <h4 class="profile-view">CONTACT LIST OF PEOPLE AT THE STUDIOS</h4>        
+    </div>
+    <div class="row">
+        @Html.Action("GetContacts")
+    </div>    
+</div>

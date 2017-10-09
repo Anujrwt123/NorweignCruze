@@ -1,0 +1,196 @@
+﻿
+<script>
+
+    $(document).ready(function () {
+
+        $(".date").datepicker({
+            changeMonth: true,//this option for allowing user to select month
+            changeYear: true //this option for allowing user to select from year range
+        });
+        //alert('hello');
+        setDateToPicker();
+    });
+
+    function setDateToPicker()
+    {
+        //debugger;
+        var selectedate = $('#S_startDate').val();
+        var cdate = new Date(selectedate);
+       // var year = cdate.getFullYear();
+
+        $(".date").datepicker
+      (
+          "option", "defaultDate", cdate
+      );
+       
+    }
+
+
+    $(document).on('change', '#Schedules', function () {
+        //debugger;
+        var data = $('#Schedules option:selected').html().split('-');
+        $('#S_startDate').html(data[0]);
+        $('#S_endDate').html(data[1]);
+        //var cdate = new Date(data[0]);
+        setDateToPicker();
+    });
+</script>
+
+<div style="padding-left:15px;padding-right:15px;" class="sub-schedule">
+    <div class="section">
+        <div class='row text-right'><span id='closebtn' style='font-size: 19px;border: 1px solid #BFBFBF;margin-right: 3px;color: #A7A7A7;font-weight: bold;cursor:pointer'>&nbsp;X&nbsp;</span></div>
+
+        <div class="row">
+            <h3 class="popup-heading"> SubSchedule for Cruise: @ViewBag.CruiseName </h3>
+            <input type="hidden" id="CruiseID" value="@ViewBag.CruiseID" />
+            @*<input type="button" onclick="countTask()" value="count" />*@
+            @*@Html.DropDownList("Cruises")*@
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-6">
+                <div class="row ">
+                    <div class="col-md-6">
+                        <label class="date" style="padding-top:10px;">Schedules for the ship</label>
+                    </div>
+                    <div class="col-md-6 text-left">
+                        @Html.DropDownList("Schedules", "select--")
+                    </div>
+                </div>
+                </div></div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label class="date" style="padding-top:10px;">Schedule Start Date</label>
+                            </div>
+                            <div class="col-md-6">
+                                <label id="S_startDate" class="label-field"></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <label class="date" style="padding-top:10px;"> Schedule End Date</label>
+                            </div>
+                            <div class="col-md-6">
+                                <label id="S_endDate" class="label-field"></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                @*<div class="row">
+                        <div class="col-md-3">
+                            NO. Of Days
+                        </div>
+                        <div>
+                            <input type="number" min="1" max="365" id="ndays" />
+                        </div>
+                    </div>*@
+
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p id="editText" class="edit-mode">
+                     
+                        <span style="font-weight: 900;" id="editTaskName"></span> Subschedule  is in edit mode.
+                        <span id="closeEdit" style="cursor:pointer;float:right;box-shadow: 2px 2px 2px #999292;" class="glyphicon glyphicon-remove"></span>
+                    </p>
+                </div>
+
+            </div>
+            <div class="section">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label class="control-label">Category</label>
+                            </div>
+                            <div class="col-md-8">
+                                @Html.DropDownList("TaskName", "select--")
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label class="control-label">Start Date</label>
+                            </div>
+                            <div class="col-md-8">
+                                <input type="text" class="date" name="subscheduleStartDate" id="subscheduleStartDate" style="width:100%;" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label class="control-label"> No. of Days</label>
+                            </div>
+                            <div class="col-md-8">
+                                <label id="ssDays" class="label-field" style="margin-top: 0px;">
+
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label class="control-label"> Personnel</label>
+                            </div>
+                            <div class="col-md-8">
+                                <select id="persons">
+                                    <option value="-1">select--</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label class="control-label">End Date</label>
+                            </div>
+                            <div class="col-md-8">
+                                <input type="text" class="date" name="subscheduleEndDate" id="subscheduleEndDate" style="width:100%" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <input type="hidden" id="tempID" />
+                        <input type="hidden" id="editIndex" />
+                        <input type="button" name="tskbtn" class="wrap-content" value="Add" id="Stskbtn" style="width:15%;"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+
+                <br />
+                <div class="row">
+                    <div class="col-md-12">
+                        <table border="1" id="TaskTable" style="border-color: azure;" class="table table-condensed table-bordered">
+                            <tr>
+                                <th>Category Name</th>
+                                <th>Person</th>
+                                <th>Start Date</th>
+                                <th>End Date</th>
+                                <th>Days</th>
+                                <th>Action</th>
+                            </tr>
+                            @*<tr class="edittr">
+                <td><div id="dropdown"></div></td>
+                <td><div id="Person"><select id="Persons"><option>select--</option></select></div></td>
+                <td><input type="text" class="date" name="StDate" id="StDate" style="width:100%;" /></td>
+                <td><input type="text" class="date" name="EDate" id="EDate" style="width:100%;" /></td>
+                <td><input type="number" name="Days" id="Days" value="" class="wrap-content" /></td>
+                <td><input type="button" name="tskbtn" class="wrap-content" value="Add" id="Stskbtn" /> </td>
+            </tr>*@
+                        </table>
+                        <input type="button" id="btnSaveSubSchedule" value="Proceed" style="width:15%" />
+                    </div>
+                </div>
+            </div>
+        </div>

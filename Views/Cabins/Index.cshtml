@@ -1,0 +1,72 @@
+﻿@model IEnumerable<CruiseEntertainmentManagnmentSystem.ViewModel.CabinsViewModel>
+
+@{
+    ViewBag.Title = "Cabins";
+}
+<h3 class="text-center page-heading">@ViewBag.Title</h3>
+<br />
+<a href="#" onclick="goToCreate('Cabins/create')">Create New</a>
+    @*@Html.ActionLink("Create New", "Create", null, new { @class = "create-link" })*@ | <a href="#" onclick="getBookingHistory(1, null, null)">Booking History</a>
+
+<div id="dataContainer">
+    @Html.Action("Cabins")
+</div>
+
+<div id="historyContainer">
+    <div id="loading" style="display:none;float: left;
+    width: 84%;
+    height: 425px;
+    border: 1px solid;
+    position: absolute;
+    z-index: 99999;
+    /* top: 0; */
+    text-align: center;
+    padding-top: 182px;
+    background: rgba(128, 128, 128, 0.46);">
+        <img src="~/Images/loading.gif" style="height:40px;width:40px" />
+    </div>
+    <div id="data">
+
+    </div>
+</div>
+
+
+@*
+
+
+
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CabinName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CabinType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CategoryName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CabinName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CabinType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CategoryName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Book", "Create", "CabinBooking", new { id = item.ID },null) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>*@

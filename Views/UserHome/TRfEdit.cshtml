@@ -1,0 +1,226 @@
+﻿@model CruiseEntertainmentManagnmentSystem.ViewModel.TRFDataViewModel
+
+@{
+    ViewBag.Title = "TRF";
+    Layout = ViewBag.Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<h2 class="row title topbottomspace">TRF</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <div class="row">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.LastName)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.LastName)
+                        @Html.ValidationMessageFor(model => model.LastName)
+                    </div>
+                </div>
+                <div class="col-md-4">
+
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.FirstName)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.FirstName)
+                        @Html.ValidationMessageFor(model => model.FirstName)
+                    </div>
+
+                </div>
+                <div class="col-md-4">
+
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.DOB)
+                    </div>
+                    <div class="editor-field">
+                        @if (!Model.DOB.HasValue)
+                        {
+                            <input type="text" name="DOB" id="DOB" class="date text-box single-line" />
+                        }
+                        else
+                        {
+
+                            <input type="text" name="DOB" id="DOB" value="@Model.DOB.Value.ToShortDateString()" class="date text-box single-line" />
+                        }
+
+
+
+                        @Html.ValidationMessageFor(model => model.DOB)
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Gender)
+                    </div>
+                    <div>
+                        @if (Model.IsFemale)
+                        {
+                            <div>
+                                <div class="col-md-4">@Html.RadioButtonFor(model => model.Gender, "1")<span class="gendername">Male</span></div>
+                                <div class="col-md-4">@Html.RadioButtonFor(model => model.Gender, "0", new { @checked = "checked" })<span class="gendername">Female</span></div>
+                            </div>
+
+                        }
+                        else
+                        {
+                            <div>
+                                <div class="col-md-4">
+                                    @Html.RadioButtonFor(model => model.Gender, "1", new { @checked = "checked" })<span class="gendername">Male</span>
+                                </div>
+                                <div class="col-md-4">
+                                    @Html.RadioButtonFor(model => model.Gender, "0")<span class="gendername">Female</span>
+                                </div>
+                            </div>
+
+                        }
+                        @Html.ValidationMessageFor(model => model.Gender)
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Nationality)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.Nationality)
+                        @Html.ValidationMessageFor(model => model.Nationality)
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.DepartureCity)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.DepartureCity)
+                        @Html.ValidationMessageFor(model => model.DepartureCity)
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.DepartureDate)
+                    </div>
+                    <div class="editor-field">
+                        @if (Model.DepartureDate == DateTime.MinValue)
+                        {
+                            <input type="text" name="DepartureDate" id="DepartureDate" class="date text-box single-line" />
+                        }
+                        else
+                        {
+                            <input type="text" name="DepartureDate" id="DepartureDate" value="@Model.DepartureDate.ToShortDateString()" class="date text-box single-line" />
+                        }
+
+
+
+                        @Html.ValidationMessageFor(model => model.DepartureDate)
+                    </div>
+                </div>
+                <div class="col-md-4">
+
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.ArrivalCity)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.ArrivalCity)
+                        @Html.ValidationMessageFor(model => model.ArrivalCity)
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.ArrivalDate)
+                    </div>
+                    <div class="editor-field">
+                        @if (Model.ArrivalDate == DateTime.MinValue)
+                        {
+                            <input type="text" name="ArrivalDate" id="ArrivalDate" class="date text-box single-line" />
+                        }
+                        else
+                        {
+                            <input type="text" name="ArrivalDate" id="ArrivalDate" value="@Model.ArrivalDate.ToShortDateString()" class="date text-box single-line" />
+                        }
+
+                        @Html.ValidationMessageFor(model => model.ArrivalDate)
+                    </div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.ReturnDate)
+                    </div>
+                    <div class="editor-field">
+                        @if (Model.ReturnDate == DateTime.MinValue)
+                        {
+                            <input type="text" name="ReturnDate" id="ReturnDate" class="date text-box single-line" />
+                            @*@Html.TextBoxFor(model => model.ReturnDate.ToShortDateString(), new { @class = "date" })*@
+                        }
+                        else
+                        {
+                            <input type="text" name="ReturnDate" id="ReturnDate" value="@Model.ReturnDate.ToShortDateString()" class="date text-box single-line" />
+
+                        }
+                        @Html.ValidationMessageFor(model => model.ReturnDate)
+
+
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.AccountNumber)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.AccountNumber)
+                        @Html.ValidationMessageFor(model => model.AccountNumber)
+                    </div>
+
+                </div>
+                <div class="col-md-4">
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Notes)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.Notes)
+                        @Html.ValidationMessageFor(model => model.Notes)
+                    </div>
+
+                </div>
+            </div>
+            <div class="row" style="margin-bottom:20px;">
+
+                <div class="col-md-4">
+
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Cruise)
+                    </div>
+                    <div class="editor-field">
+                        @Html.DropDownList("Cruise", "select--")
+                        @Html.ValidationMessageFor(model => model.Cruise)
+                    </div>
+                </div>
+
+                <div class="col-md-4"><input type="submit" value="Save" class="btn" style="margin-top:25px;" /></div>
+            </div>
+
+        </div>
+        @Html.HiddenFor(model => model.ID)
+        @Html.HiddenFor(model => model.Person)
+    </fieldset>
+}
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

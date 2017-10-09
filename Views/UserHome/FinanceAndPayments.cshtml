@@ -1,0 +1,279 @@
+﻿
+@{
+    ViewBag.Title = "FinanceAndPayments";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<h4 class="profile-view">Finance And Payments</h4>
+<div>
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist" id="FNPmenu" >
+        <li role="presentation"><a aria-controls="W9" role="tab" data-toggle="tab" style="cursor:pointer" value="W9">W9</a></li>
+        <li role="presentation"><a  aria-controls="Fast Pay" role="tab" data-toggle="tab"  style="cursor:pointer" value="FASTPAY">Fast Pay</a></li>
+        <li role="presentation"><a  aria-controls="New Vendor" role="tab" data-toggle="tab" style="cursor:pointer" value="NEWVENDOR">New Vendor</a></li>
+        <li role="presentation"><a  aria-controls="Vendor Payment" role="tab" data-toggle="tab" style="cursor:pointer" value="VENODRPAYMENT">Vendor Payment</a></li>
+    </ul>
+
+    <div class="row">
+        <div class="col-md-6 col-md-offset-6 text-right print">
+            <a href="#" id="btnPrint"><span class="glyphicon glyphicon-print" aria-hidden="true"></span>Print</a>
+            <a href="#" id="btndownload"><span class="glyphicon glyphicon-download-alt"  aria-hidden="true"></span>Download</a>
+            <a href="#" id="btnSave"><span class="glyphicon glyphicon-send" aria-hidden="true"></span>Submit</a>
+        </div>
+    </div>
+    <!-- Tab panes -->
+    <div id="dataContainer">
+    </div>
+</div>
+
+<script src="~/Scripts/Common.js"></script>
+<script>
+
+    $(document).on('click', '#FNPmenu>li', function () {
+        debugger;
+        var value = $(this).find('a').attr('value');
+        showLoadingDiv();
+        $('#FNPmenu>li').removeClass('active');
+        //console.log($(this).parent().html());
+        $(this).addClass('active');
+        $('#dataContainer').html("");
+        switch(value.toUpperCase())
+        {
+            case "W9":                
+                $('#dataContainer').load('/UserHome/w9', function () {
+                    hideLoadingDiv();
+
+                    $('#btndownload').attr('onclick', 'getW9PDF(2)');
+                    $('#btnPrint').attr('onclick', 'getW9PDF(1)');
+                    $('#btnSave').attr('onclick', 'saveW9()');
+                });
+
+
+                break;
+            case "FASTPAY":
+                $('#dataContainer').load('/UserHome/FastPay', function () {
+                    hideLoadingDiv();
+                    $('#btndownload').attr('onclick', 'getFastPayPDF(2)');
+                    $('#btnPrint').attr('onclick', 'getFastPayPDF(1)');
+                    $('#btnSave').attr('onclick', 'saveFastPay()');
+                });
+                break;
+            case "NEWVENDOR":
+                $('#dataContainer').load('/UserHome/NewVendor', function () {
+                    hideLoadingDiv();
+                    $('#btndownload').attr('onclick', 'getNewVendorPDF(2)');
+                    $('#btnPrint').attr('onclick', 'getNewVendorPDF(1)');
+                    $('#btnSave').attr('onclick', 'saveNewVendor()');
+                });
+                break;
+            case "VENDORPAYMENT":
+                //$('#dataContainer').load('/UserHome/VendorPayment', function () {
+                //    $('#loadingDiv').css('display', 'none');
+                //});
+                hideLoadingDiv();
+                break;
+        }
+
+    });
+
+    function getW9PDF(option)
+    {
+        window.open('/UserHome/GenerateW9PDF?option='+option, '_blank');
+    }
+
+
+    function saveW9() {
+        showLoadingDiv();
+        var obj = {};
+        obj.SoleProprietor = $('#SoleProprietor').is(':checked');
+        obj.CCorporation = $('#CCorporation').is(':checked');
+        obj.SCorporation = $('#SCorporation').is(':checked');
+        obj.PartnerShip = $('#PartnerShip').is(':checked');
+        obj.Trust = $('#Trust').is(':checked');
+        obj.LLC = $('#LLC').is(":checked");
+        obj.TaxClassification = $('#TaxClassification').val();
+        obj.Other = $('#Other').is(':checked');
+        obj.OtherText = $('#OtherText').val();
+        obj.RequestorName = $('#RequestorName').val();
+        obj.EmployerIdentificationNumber = $('#EmployerIdentificationNumber').val();
+        obj.ExemptPayeeCode = $('#ExemptPayeeCode').val();
+        obj.FATCACode = $('#FATCACode').val();
+        obj.BusinessName = $('#BusinessName').val();
+        obj.AccountNumber = $('#AccountNumber').val();
+        obj.ID = $('#ID').val();
+        obj.Person = $('#Person').val();
+
+        $.ajax({
+            url: "/Userhome/w9",
+            type: "POST",
+            data: { model: obj },
+            success: function (data) {
+                alert('form saved successfully.');
+                hideLoadingDiv();
+            },
+            error: function (err) {
+                hideLoadingDiv();
+                alert(err.statusText);
+                
+            }            
+        });
+    }
+
+
+    function getFastPayPDF(option)
+    {
+        window.open('/UserHome/FastPayFormPDF?option='+option,'_blank');
+    }
+    
+    function saveFastPay()
+    {
+        showLoadingDiv();
+        var obj = {};
+        obj.BankName = $('#BankName').val();
+        obj.BankAddress = $('#BankAddress').val();
+        obj.CityState = $('#CityState').val();
+        obj.ContactName = $('#ContactName').val();
+        obj.BankPhoneNumber = $('#BankPhoneNumber').val();
+        obj.BankAccount = $('#BankAccount').val();
+        obj.BankRouting = $('#BankRouting').val();
+        obj.NameInBank = $('#NameInBank').val();
+        obj.Email = $('#Email').val();
+        obj.PrintedName = $('#PrintedName').val();
+        obj.ID = $('#ID').val();
+        obj.PersonID = $('#PersonID').val();
+
+        $.ajax({
+            url: '/UserHome/FastPay',
+            type: 'POST',
+            data: { model: obj },
+            success: function (data) {
+                alert('data saved successfully.');
+                hideLoadingDiv();
+            },
+            erro: function (err) {
+                alert('error:' + err.statusText);
+            }
+        });
+
+    }
+
+
+    function getNewVendorPDF(option)
+    {
+        window.open("/userhome/NewVendorFormPDF?option="+option, "_blank");
+    }
+
+    function saveNewVendor()
+    {
+        debugger
+        var obj = {};
+        if ($('#ID').val() != undefined) {
+            obj.ID = $('#ID').val();
+        }
+        else {
+            obj.ID = 0;
+        }
+        console.log($('[name="IsNewVendor"]'));
+        $('[name="IsNewVendor"]').each(function (idx, ele) {
+            debugger;
+            if (ele.checked) {
+                obj.IsNewVendor = ele.getAttribute('value');
+            }
+        });
+
+        obj.DateOfRequest = $('#DateOfRequest').val();
+        obj.CompanyName = $('#CompanyName').val();
+        obj.Address = $('#Address').val();
+        obj.TaxIdNumber = $('#TaxIdNumber').val();
+        obj.PhoneNumber = $('#PhoneNumber').val();
+        obj.ContactName = $('#ContactName').val();
+        obj.ContactTitle = $('#ContactTitle').val();
+        obj.Website = $('#Website').val();
+        obj.Email = $('#Email').val();
+        obj.PaymentTerms = $('#PaymentTerms').val();
+        obj.RequestMode = $('#RequestMode').val();
+        obj.BankName = $('#BankName').val();
+        obj.BankAccountNumber = $('#BankAccountNumber').val();
+        obj.ABANumber = $('#ABANumber').val();
+        obj.SwiftCode = $('#SwiftCode').val();
+        obj.IBANNumber = $('#IBANNumber').val();
+        //$('[name="IBANNumber"]').each(function (idx,ele) {
+        //    debugger;
+        //    if(ele.checked)
+        //    {
+        //        obj.IBANNumber = ele.getAttribute('value');
+        //    }
+        //});
+
+        $('[name="IsSignedOff"]').each(function (idx, ele) {
+            if (ele.checked) {
+                obj.IsSignedOff = ele.getAttribute('value');
+            }
+
+        });
+        //obj.IsSignedOff = $('#IsSignedOff').val();
+        $('[name="IsIRSW9Attached"]').each(function (idx, ele) {
+            if (ele.checked) {
+                obj.IsIRSW9Attached = ele.getAttribute('value');
+            }
+
+        });
+
+        obj.PreparedBy = $('#PreparedBy').val();
+        obj.Department = $('#Department').val();
+        obj.ApprovedBy = $('#ApprovedBy').val();
+        obj.Date = $('#Date').val();
+        obj.Signature = $('#Signature').val();
+        $('[name="IsVendorNameChecked"]').each(function (idx, ele) {
+            if (ele.checked) {
+                obj.IsVendorNameChecked = ele.getAttribute('value');
+            }
+
+        });
+        $('[name="IsVendorAddressChecked"]').each(function (idx, ele) {
+            if (ele.checked) {
+                obj.IsVendorAddressChecked = ele.getAttribute('value');
+            }
+
+        });
+
+
+        obj.ReviewedByForName = $('#ReviewedByForName').val();
+        obj.DateForName = $('#DateForName').val();
+        obj.ForNameSignature = $('#ForNameSignature').val();
+        $('[name="IsCreatedinPplSoft"]').each(function (idx, ele) {
+            if (ele.checked) {
+                obj.IsCreatedinPplSoft = ele.getAttribute('value');
+            }
+
+        });
+        obj.ReviewedByforPPlsoft = $('#ReviewedByforPPlsoft').val();
+        obj.ReviewDateforPPlsoft = $('#ReviewDateforPPlsoft').val();
+        obj.ForPPLSoftSignature = $('#ForPPLSoftSignature').val();
+        obj.ReviewedByForAuthT = $('#ReviewedByForAuthT').val();
+        obj.DateForAuthT = $('#DateForAuthT').val();
+        obj.ForAuthTsignature = $('#ForAuthTsignature').val();
+
+
+        $.ajax({
+            url: '/UserHome/NewVendor',
+            type: 'POST',
+            data: { model: obj },
+            success: function (data) {
+                if (data == "1") {
+                    alert('data saved successfully.');
+                }
+                else if (data == "2") {
+                    alert('mendatory fields are not filled properly.');
+                }
+                else {
+                    alert(data);
+                }
+            },
+            error: function (err) {
+                alert('error:' + err.statusText);
+            }
+        });
+    }
+
+</script>

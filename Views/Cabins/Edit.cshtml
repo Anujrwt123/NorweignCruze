@@ -1,0 +1,62 @@
+﻿@model CruiseEntertainmentManagnmentSystem.Models.Cabins
+
+@{
+    ViewBag.Title = "Cabin Edit";
+}
+
+@*<h2>@ViewBag.Title.</h2>*@
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <div class="row">
+            <div class="row title">
+                <p>Cabins</p>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-8">
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.CabinName)
+                    </div>
+                    <div class="editol-field">
+                        @Html.EditorFor(model => model.CabinName)
+                        @Html.ValidationMessageFor(model => model.CabinName)
+                    </div>
+
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.CatName)
+                    </div>
+                    <div class="editol-field">
+                        @Html.DropDownList("catName", "select---")
+                        @*@Html.EditorFor(model => model.CatName)*@
+                        @Html.ValidationMessageFor(model => model.CatName)
+                    </div>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.CabinType)
+                    </div>
+                    <div class="editor-field">
+                        @Html.DropDownList("Cabintype", "Select---")
+                        @*@Html.EditorFor(model => model.CabinType)
+                        @Html.ValidationMessageFor(model => model.CabinType)*@
+                    </div>
+                    <div>
+
+                        <br />
+                        <div>
+                            <input type="submit" value="Save" class="btn" />
+                            <a href="#" onclick="goToPrevious('@ViewBag.ReturnUrl')">cancel</a>
+                            @*@Html.ActionLink("Back to List", "Index")*@
+                        </div>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+            </div>
+
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

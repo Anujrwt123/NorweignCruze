@@ -1,0 +1,60 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title</h1>
+    @*<h2>@ViewBag.Message</h2>*@
+</hgroup>
+
+
+@*  My code goes here..... *@
+
+
+
+
+<form action="/Home/About" method="post" enctype="multipart/form-data">
+    <div>
+        <input type="text" name="text" />
+        <input type="file" name="file" />
+        <input type="submit" value="Submit" />
+    </div>
+</form>
+
+@*@using (Html.BeginForm("About", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <input type="file" name="FileUpload" />
+    <input type="submit" name="Submit" id="Submit" value="Upload" />
+}*@
+
+
+@* My code ends here...... *@
+
+
+
+
+    @*<article>
+            <p>
+                Use this area to provide additional information.
+            </p>
+
+            <p>
+                Use this area to provide additional information.
+            </p>
+
+            <p>
+                Use this area to provide additional information.
+            </p>
+        </article>*@
+
+    @*<aside>
+            <h3>Aside Title</h3>
+            <p>
+                Use this area to provide additional information.
+            </p>
+            <ul>
+                <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                <li>@Html.ActionLink("About", "About", "Home")</li>
+                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+            </ul>
+        </aside>*@

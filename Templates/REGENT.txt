@@ -1,0 +1,366 @@
+﻿
+
+<div style='width:100%;text-align:center'>
+																		<h3>AGREEMENT</h3>
+</div>
+        THIS AGREEMENT (“Agreement”) is made and entered into this <b> <%getdate%></b> day of <b><%month%></b> by and between SEVEN SEAS CRUISES S.DE R.L,(hereinafter reffered to as "OWNER"),a corporation duly organized and existing pursuant to the laws of the Republic of Panama and qualified to transact business in Florida, having offices at 8300 N.W. 33rd Street, Suite 100, Miami, Florida 33122 and <b> <%name%></b> (“Consultant”).
+    
+    
+	<div style='width:100%;text-align:center'>
+	<h3>W I T N E S S E T H:</h3>
+	</div>
+																	 
+  <p style='text-indent:50px'>
+
+    WHEREAS, Seven Seas desires to engage the Consultant for the purpose of providing services in the area(s) of <b><%position%></b> for <b> <%shows%></b> produced onboard the <b><%ship%></b> (the “Services”); and
+	</p>
+	
+	
+
+	<p style='text-indent:50px'>
+    WHEREAS, the Consultant represents that it is experienced and is fully qualified to perform the Services and undertake the duties hereinafter set forth; and
+	</p>
+	
+	<p style='text-indent:50px'>
+    WHEREAS, Seven Seas desires to engage Consultant and Consultant desires to perform the Services in accordance with the terms and conditions set forth below.
+	</p>
+	
+	<p style='text-indent:50px'>
+    NOW, THEREFORE, in consideration of the premises and the mutual covenants contained herein, and for other valuable consideration acknowledged by each of the parties to be satisfactory and adequate, the parties covenant and agree as follows:
+	</p>
+	<p style='text-indent:50px'>
+
+    1.&nbsp;&nbsp;&nbsp;&nbsp;	Scope of Services. &nbsp;&nbsp; In connection with the Services, Consultant will furnish services which will include but not be limited to the terms outlined in Exhibit B.
+	</p>
+
+    The Consultant will report directly to Richard Ambrose and Robert Dean Hertenstein during the Term of the Agreement.
+
+	<p style='text-indent:50px'>
+    2.&nbsp;&nbsp;&nbsp;&nbsp;	Term of Agreement. &nbsp;&nbsp;	This Agreement will be effective from the date of <b> <%term%> </b>(”Term”).
+	</p>
+
+	<p style='text-indent:50px'>
+    3.&nbsp;&nbsp;&nbsp;&nbsp;<%point3%>
+	</p>
+
+	<p style='text-indent:50px'>
+    4.&nbsp;&nbsp;&nbsp;&nbsp;	Reimbursement of Expenses. &nbsp;&nbsp; Seven Seas will reimburse the Consultant for all authorized pre-approved expenses incurred by the Consultant required in connection with the performance of the Services under this Agreement.
+	</p>
+
+	<p style='text-indent:50px'>
+    5.&nbsp;&nbsp;&nbsp;&nbsp;	Independent Contractor.
+	</p>
+	<br/>
+	<p style='text-indent:100px'>
+    A.&nbsp;&nbsp;&nbsp;The Consultant will furnish its Services to Seven Seas, as an independent contractor and not as an employee of Seven Seas or of any company affiliated with Seven Seas. The Consultant has no power or authority to act for, represent, or bind Seven Seas or any company affiliated with Seven Seas in any manner. The Consultant shall also be solely responsible at her sole cost and expense for any and all taxes or assessments imposed or charged with respect to the fees paid to the Consultant hereunder or the performance by the Consultant of the Services.  If Seven Seas or any Seven Seas affiliated company is required to pay or withhold any taxes or make any other payment with respect to fees payable to the Consultant, the Consultant will reimburse Seven Seas or the  affiliated company in full for taxes paid, and permit Seven Seas to make deductions for taxes required to be withheld from any sum due to the Consultant
+	<p/>
+	<p style='text-indent:100px'>
+    B.&nbsp;&nbsp;&nbsp;The Consultant shall be solely responsible for all salaries, employee benefits, social security taxes, federal and state unemployment insurance, and any and all similar expenses or taxes relating to the Consultant or its employees or agents. Neither Consultant nor its employees or agents shall be entitled to participate in, or to receive any benefits from Seven Seas’ or Seven Seas’ affiliated companies’ employee benefit or welfare plans, specifically including, but not limited to, coverage under health care program or workers' compensation program of Seven Seas or any of Seven Seas’s affiliated companies (health insurance and workers compensation insurance shall be required and maintained by Consultant). Neither Seven Seas nor Seven Seas’ affiliated companies shall have any obligation whatsoever to compensate Consultant or any of its employees or agents on account of any injuries which Consultant or any of its employees or agents may sustain as a result of or in the course of the performance of the Services, and Consultant hereby waives, on their own behalf and on behalf of any persons claiming by, through or under Consultant, any and all rights of recovery which Consultant may now or hereafter have against Seven Seas or any Norwegian affiliated company on account of any such injuries pursuant to the outline of Exhibit C. 
+	</p>
+	<p style='text-indent:50px'>
+    6.&nbsp;&nbsp;&nbsp;&nbsp;Consultant Not to Engage in Conflicting Activities. &nbsp;&nbsp;During the term of this Agreement, Consultant will not enter into any activity, employment, or business arrangement that conflicts with Seven Seas’s interests or Consultant’s obligations under this Agreement.  In view of the sensitive nature of the Services that Consultant will provide pursuant to this Agreement, Seven Seas
+    shall have the option of terminating this Agreement at any time if, in Seven Seas’s sole judg¬ment, a conflict of interest exists or is imminent.  Consultant will advise Seven Seas of Consultant’s position
+    with respect to any activity, employment, or business arrangement contemplated by Consultant
+    that may be relevant to this Section 6.  Consultant also agrees to disclose any such plans to Seven Seas
+    prior to their implementation.
+	</p>
+	<p style='text-indent:50px'>
+    7.&nbsp;&nbsp;&nbsp;&nbsp; Confidentiality and Work Product.&nbsp;&nbsp; Consultant agrees that during the term of this
+    Agreement and thereafter to maintain the confidential nature of the terms and conditions of this Agreement and any proprietary or other confidential information pertaining to Seven Seas, its trade secrets, business or operations.  Consultant further agrees that it will treat as proprietary any information belonging to Seven Seas, Seven Seas’s affiliated companies, or any third parties, dis¬closed to Consultant in the course of Consultant’s performance of the Services. The Consultant acknowledges
+    that a violation of Consultant’s confidentiality or non-disclosure obligations under this Agreement may cause irreparable damage to Seven Seas that cannot be fully remedied by money damages.  Accordingly, in the event of any such violation or threat of violation, Seven Seas will be entitled, in addition to pursuing any other remedy available to and under this Agreement or at law, to obtain injunctive or equitable relief from any court of competent jurisdiction as may be necessary or appropriate to prevent any further violations thereof.
+	</p>
+	<p style='text-indent:50px'>
+    All Work Product (as defined below), and all right, title and interest therein, shall be and at all times remain the exclusive property of Seven Seas and Consultant shall have no rights therein.  All Work Product shall be a work made for hire.  To the extent that such Work Product shall not constitute a work made for hire, the Consultant hereby expressly assigns to Seven Seas  all right, title and interest in and to all Work Product.  For the purposes of this Agreement, "Work Product" means all work product of Consultant produced, developed or discovered by Consultant pursuant to or in connection with this Agreement and/or the Services, including all reports, data, materials, ideas, know-how, information, software, specifications, inven¬tions, writings, discoveries, patents, copy¬rights, trademarks, trade secrets and designs, along with all proprietary and other rights that may now or in the future exist therein or be appurtenant thereto related to the work performed for Seven Seas by the Consultant. The Consultant shall mark all Work Product with Seven Seas’s copyright or other proprietary notice as directed by Seven Seas and shall take all actions deemed necessary by Seven Seas
+    to perfect Seven Seas’s right therein.
+	</p>
+
+	<p style='text-indent:50px'>
+    This Section 7 shall survive the expiration or termination of this Agreement.
+	</p>	
+	<p style='text-indent:50px'>
+    8.&nbsp;&nbsp;&nbsp;&nbsp;	Termination of Agreement by Notice.&nbsp;&nbsp;  Seven Seas or Consultant may terminate this
+    Agreement at any time and for any reason upon written notice with 30 days notice.
+	</P>
+
+	<p style='text-indent:50px' > 
+    9.&nbsp;&nbsp;&nbsp;&nbsp;	Indemnification.
+	</p>
+	<br/>
+	<p style='text-indent:100px'>
+    A.&nbsp;&nbsp;&nbsp;&nbsp;Consultant shall defend, indemnify, and hold harmless Seven Seas, its parent, related, affiliated and subsidiary companies, and the officers, directors, agents, employees, and assigns of each, from and against any and all damages, claims, demands, suits, judgments, losses, or expenses (including, without limitation, attorneys' fees and fees of other professionals) of any nature whatsoever (whether based on tort, breach of contract, product liability, patent or copyright infringement, or otherwise) arising directly or indirectly from or out of:  any act or omission of Consultant; any failure of Consultant to perform the Services hereunder in accordance with generally accepted industry and professional standards; any breach of Consultant’s representations as set forth in this Agreement; or any other failure of Consultant to comply with the obligations on Consultant’s part to be performed hereunder.  The provisions of this Section 9 shall survive the expiration or sooner termination of this Agreement.
+	</p>
+	<p style='text-indent:100px'>
+		B.&nbsp;&nbsp;&nbsp;&nbsp;	Seven Seas shall have the right to offset against any amounts due Consultant under this Agreement the amount of any indemnity to which Seven Seas is entitled under this Section 9 for any damage, cost, liability, expense, fee or other disbursement, incurred by Seven Seas pursuant to this Section 9.  However, nothing contained in this Section 9 shall be construed as an indemnity by Consultant against any loss, liability or claim (i) caused solely by the negligent acts or omissions of Seven Seas, its directors, officers, agents, or employees, or (ii) resulting from the unlawful or negligent actions of third parties, unless caused by the negligence or misconduct of Consultant with respect to the matters arising herein.
+	</p>
+	<br/>
+	<br/>
+	<p style='text-indent:50px'>
+    10.&nbsp;&nbsp;&nbsp;&nbsp;	Other Terms and Conditions.
+	</p>
+	<p style='text-indent:100px'>
+    A.&nbsp;&nbsp;&nbsp;&nbsp;	Consultant waives any and all rights it possess or hereinafter acquires to assert, impose, exercise or foreclose upon any lien or lien right against Seven Seas or any vessel of Seven Seas.
+	</p>
+	<p style='text-indent:100px'>
+    B.&nbsp;&nbsp;&nbsp;&nbsp;	Neither this Agreement nor any right conferred hereby is assignable by any party in whole or in part, without the prior written consent of the other parties; provided, however, that Seven Seas shall have the right to assign this Agreement, in whole or in part, to any of its subsidiaries or affiliates.  Consultant’s duties hereunder are non-delegable and may not be subcontracted or otherwise delegated without the prior written consent of Seven Seas.
+	</p>
+	<p style='text-indent:100px'>
+    C.&nbsp;&nbsp;&nbsp;&nbsp;	This written Agreement constitutes the entire agreement between the parties, and no representations, inducements, promises or agreements, oral or otherwise, between the parties not in writing herein shall be of any force or effect.  Neither the failure of any party hereto to exercise every right given hereunder or to insist upon strict compliance by the other party with any obligation hereunder, nor any custom or practice of the parties at variance with the terms hereof, shall constitute a waiver of either party's right to demand exact compliance with the terms hereof.  Waiver by a party of any particular default by the other shall not affect or impair the rights of that party in respect to any subsequent default of the same or of a different nature, nor shall any delay or omission of such party to exercise any rights arising from such default affect or impair that party's rights as to such default or any subsequent default.
+	</p>
+	<p style='text-indent:100px'>
+    D.&nbsp;&nbsp;&nbsp;&nbsp;	Any specific remedies set forth in this Agreement, legal, equitable or otherwise, shall not be exclusive, but shall be cumulative upon all other rights set forth herein or allowed or allowable by this Agreement or by law.
+	</p>
+	<p style='text-indent:100px'> 
+    E.&nbsp;&nbsp;&nbsp;&nbsp;	If any covenant or other provision of this Agreement is invalid, illegal or incapable of being enforced, by reason of any rule, law or public policy, all other conditions and provisions of this Agreement shall, nevertheless, remain in full force and effect and no covenant or provision shall be deemed dependent upon any other covenant or provision unless so expressed herein.
+	</p>
+	<p  style='text-indent:100px'>
+    F.&nbsp;&nbsp;&nbsp;&nbsp;All notices, requests, demand or other communications required or permitted to be given herein shall be deemed given if in writing, sent by facsimile transmission or deposited in the United States mail in a sealed envelope with postage thereon prepaid and registered or certified, return receipt requested, properly addressed to Seven Seas or Consultant, as the case may be, at the addresses set forth below or at such address as the parties may direct from time to time in like manner:
+	</p>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	
+	<p style='text-indent:100px'>
+
+    If to Seven Seas:
+	<div style='text-align:left;margin-left:130px'>
+     <span>NCL (Bahamas) Ltd.<span><br/>
+    <span>Attn: Robert Hertenstein, Director of Entertainment</span><br/>
+    <span>7665 Corporate Centre Drive</span><br/>
+    <span>Miami, Florida 33126</span><br/>
+    With a Copy to General Counsel at the same address
+	</div>
+	</p>			
+	<p style='text-indent:100px'>
+
+    If to Seven Seas:
+	<div style='text-align:left;margin-left:130px'>
+	   <b><%name%></b><br/>
+	   <b><%address%></b><br/>
+	   <b><%city%></b>&nbsp;&nbsp; <b><%zip%></b><br/>
+	</div>
+	</p>
+	<br/>
+	<br/>
+	<br/>
+	<p style='text-indent:100px'>
+    G.&nbsp;&nbsp;&nbsp;&nbsp;In the event a party shall retain or engage an attorney or attorneys to collect or enforce or protect its interests with respect to this Agreement, the prevailing parties shall be entitled to
+    receive payment of all costs and expenses of such collections, enforcement or protection, including reasonable attorneys' fees.
+	</p>
+	<p style='text-indent:100px'>
+    H.&nbsp;&nbsp;&nbsp;&nbsp;	No modification or waiver of any provision of this Agreement, and no consent to any departure shall be effective unless such modification or waiver shall be in writing and signed by a duly authorized corporate officer of Seven Seas, and the same shall then be effective only for the period and on the conditions and for the specific instances and purposes specified in such writing.
+	</p>
+	<p style='text-indent:100px'>
+    I.&nbsp;&nbsp;&nbsp;&nbsp;	This Agreement, and all its terms and conditions, shall be governed by and interpreted under the laws of the State of Florida, without regard to the conflict of laws provisions thereof. Consultant and Seven Seas each hereby irrevocably agree and submit to the exclusive jurisdiction of the Circuit Court, Eleventh Judicial Circuit, Dade County, Florida, and to the United States District Court for the Southern District of Florida in the event any action or proceeding is commenced by either party arising from, related to or in connection with this Agreement.
+	</p>
+	<p style='text-indent:100px'>
+    J.&nbsp;&nbsp;&nbsp;&nbsp;	Neither party hereto shall be liable for any loss, injury or damage out of any delay or failure of performance caused by circumstances beyond its reasonable control, or by circumstances which it could not through reasonable precaution have avoided including, but not limited to policies or restrictions of governments, wars, riots, or civil commotions (hereinafter referred to as “Force Majeure”) and any such delay or failure of performance due to any said Force Majeure shall not be deemed to be a breach of or a default in the performance of this Agreement. The party prevented from performing because of Force Majeure shall promptly notify the other party and shall do all things reasonably possible to remove such Force Majeure and, if applicable, to reduce its costs and expenses chargeable to the other party and shall resume performance hereunder as soon as any such Force Majeure is at an end.
+	</p>
+	<p style='text-indent:100px'>
+    K.&nbsp;&nbsp;&nbsp;&nbsp;	Consultant represents and warrants that it is fully qualified to provide the Services and that Consultant will perform the Services in a professional manner and will give Seven Seas the full benefit of Consultant’s knowledge, experience, judgment and expertise in rendering advice to Seven Seas on the matters and subjects related to the Services.
+	</p>
+	<p style='text-indent:100px'>
+    L.&nbsp;&nbsp;&nbsp;&nbsp;	At Seven Seas’s sole option, any dispute relating to or arising from this Agreement may be submitted to and settled by arbitration under the Commercial Rules of the American Arbitration Association.  Three arbitrators shall be selected.  Consultant and Seven Seas shall each select one arbitrator and the two chosen arbitrators shall select the third arbitrator, or failing agreement on the selection of the third arbitrator, the American Arbitration Association shall select the third arbitrator.  Arbitration will take place in Miami, Florida.  Any court having jurisdiction over the matter may enter judgment on the award of the arbitrator(s).  Service of a petition to confirm the arbitration award may be made by First Class mail or by commercial express mail, to the attorney for the party or, if unrepresented, to the party at the last known business address.  Discovery in the arbitration will be governed by the local rules applicable in the United States District Court for the Southern District of Florida.  In the event of arbitration, the parties will retain their right to injunctive relief.
+	</p>
+	<p style='text-indent:100px'>
+    M.&nbsp;&nbsp;&nbsp;&nbsp;	The provisions of this Agreement are for the exclusive benefit of the parties and their permitted successors and assigns and shall not confer any rights or remedies upon any other persons or entities.
+	</p>
+	<p style='text-indent:100px'>
+    N.&nbsp;&nbsp;&nbsp;&nbsp;	All references in this Agreement to sections or paragraphs are to sections or paragraphs of this Agreement.  All section headings are inserted for convenience only and shall not affect the construction or interpretation of this Agreement.
+	</p>
+	<p style='text-indent:100px'>
+    O.&nbsp;&nbsp;&nbsp;&nbsp;	This Agreement may be executed in any number of counterparts.  All such counterparts shall be deemed to be originals, and shall together constitute but one and the same instrument.  The parties agree that facsimile signatures for this Agreement shall be deemed valid and binding upon the parties and shall have the same force and effect as original signatures on the Agreement
+	</p>
+	
+	<p style='style=text-indent:50px'>
+    IN WITNESS WHEREOF, the parties hereto have caused this Agreement to be executed as of the day and year first above written.
+	</p>
+	<p>
+	<br/>
+
+    NCL (Bahamas) Ltd.  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b><%name%></b>
+	</p>
+	<br/>
+
+	<br/>
+
+	<div style='width:100%;text-align:left'>
+		By:	_________________________&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;By:	________________________<br/>
+		Name:	Robert Hertenstein&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Name:<b><%name%></b>	<br/>
+		Title:	Director, Entertainment Production&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Title:<b><%position%>	</b><br/>
+
+		
+	</div>
+
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	
+	<div style='width:100%;text-align:center;font-weight:bold'>
+	Exhibit A
+	</div>
+
+	<br/>
+	
+    
+	<div style='width:100%;text-align:center;font-weight:bold'>
+     Payment Schedule<br/>
+	 <b><%name%></b>
+	</div>
+	<div style='width:100%;text-align:center;font-weight:bold'>
+    Contract # <b><%shows%></b>
+    Project: - <b><%shows%>&nbsp; -&nbsp;<%ship%></b>
+	</div>
+
+	<div style='text-align:left'>
+
+    Name:&nbsp;<b><%name%></b>
+	<br/>
+    Company:&nbsp; Individual Contractor
+	<br/>
+    Address:&nbsp;<b> <%address%></b>
+	<br/>
+    City/State:&nbsp;<b><%city%></b>
+	<br/>
+    Zip Code:&nbsp;<b><%zip%></b>
+	<br/>
+    Phone:&nbsp;<b><%phone%></b>
+	<br/>
+    Fed ID/SS#:&nbsp;<b><%SSN%></b>
+	<br/>
+    E-mail:&nbsp;<b><%Email%></b>
+	<br/>
+    Dates of Services:<b> <%term%> </b> &nbsp;:&nbsp;<b><%position%></b>
+	<br/>
+	<br/>
+	<br/>
+	<p>
+	</div>
+    Travel: If in connection with Consultant Services hereunder, SEVEN SEAS CRUISES S. DE R. L requires Consultant to travel more than one hundred (100) miles from Consultant’s principal place of residence, than Consultant shall be entitled to receive (solely for the Consultant’s benefit and use) the following in lieu of all living or other expenses; (a) coach class airfare when flying domestically, including Hawaii and Caribbean and all international travel; (b) room rate and applicable taxes for single occupancy hotel accommodations (or guest accommodations while on a SEVEN SEAS CRUISES S. DE R. L vessel); (c) ground transportation (including roundtrip ground transportation between the airport and Consultant’s residence or hotel, as applicable) provided by SEVEN SEAS CRUISES S. DE R. L or reimbursement for ground. All travel arrangements shall be made by SEVEN SEAS CRUISES S. DE R. L. SEVEN SEAS CRUISES S. DE R. L in its sole discretion shall have the right to approve or disapprove any schedule and/or travel changes. 
+	</p>
+
+	<br/>	
+	<div style='text-align:left'>
+		<div>
+		Project Fee: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b> $<%payment1%></b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Execution of Contract<br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>$<%payment2%></b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp;<b><%payment2date%></b><br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__________<br/><br/>
+		<b>$<%weeklyrate%>&nbsp; Weekly Rate= $<%totalfee%> for a total project fee plus per diem    </b>Total<br/> 
+		</div>		
+		<br/>
+		
+		<div>
+				<div>		
+		Other Payments:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 	$<%dayrate%>/Day&nbsp;&nbsp;	Any additional work past &nbsp;&nbsp;&nbsp;<%enddate%><br/><br/>
+		TOTAL FEE:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>$<%weeklyrate%> &nbsp;Weekly Rate= $<%totalfee%> for a total project fee plus per diem    </b><br/>
+				</div>
+		</div>
+
+	</div>	
+	<div style='width:100%;text-align:center;'>
+		<p>
+		END OF EXHIBIT A
+		</p>
+	</div>
+	*Consultant must invoice all Per Diem Fees separately from Project Fee
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+
+	<div style='width:100%;text-align:center;font-weight:bold'>
+		Exhibit B
+	</div>
+
+	<br/>
+	<br/>
+	<br/>
+    
+	<div style='width:100%;text-align:center;font-weight:bold'>
+		 Scope of Services<br/>
+		 <%name%>
+	</div>
+
+	<div style='width:100%;text-align:center;font-weight:bold'>
+		 Contract # &nbsp;&nbsp; <%shows%>
+		 Project: -<%shows%>&nbsp;-&nbsp;<%ship%>
+	</div>
+
+
+    
+
+    
+    
+	<div style='text-align:left'>
+    Name:&nbsp;<b> <%name%></b><br/>
+    Company: Individual Contractor<br/>
+    Address: &nbsp;<b><%address%></b><br/>
+    City/State:&nbsp; <b><%city%></b><br/>
+    Zip Code: &nbsp; <b><%zip%></b><br/>
+    Phone:&nbsp; <b><%phone%></b><br/>
+    Fed ID/SS#:&nbsp;<b><%SSN%></b><br/>
+    E-mail:&nbsp;<b><%Email%></b><br/>
+	</div>
+	<br/>
+	<p style='text-indent:50px'>
+    1.	Scope of Services: Seven Seas CRUISE LINE (“Producer”) engages Consultant to<b> <%shows%></b> for both  on the <b><%ship%></b>(collectively the “Services).
+
+    Consultant will need to be in rehearsal in Tampa, Florida from <b><%tampdates%></b> for <b><%shows%></b> rehearsals, at Producer’s discretion. Consultant will need to sail onboard the<b> <%ship%> </b>for <b><%position%> </b>from <b><%shipdates%> </b>, at Producer’s discretion.
+	</p>
+	<div style='width:100%;text-align:center'>
+    END EXHIBIT B
+	</div>
+
+	<br />
+
+		<div style='width:100%;text-align:center;font-weight:bold'>
+	Exhibit C
+	</div>
+
+	<br/>
+	
+    
+	<div style='width:100%;text-align:center;font-weight:bold'>
+     Insurance and Medical<br/>
+	</div>
+	<br/>
+	<br/>
+	<p>
+	</div>
+    Medical Insurance: The Consultant shall be solely responsible for all required international insurance required to sail on our ships, and any and all similar expenses or taxes relating to the Consultant or its employees or agents. Neither Consultant nor its employees or agents shall be entitled to participate in, or to receive any benefits from Norwegian’s or Norwegian’s affiliated companies’ employee benefit or welfare plans, specifically including, but not limited to, coverage under health care program or workers' compensation program of Norwegian or any of Norwegian’s affiliated companies (health insurance and workers compensation insurance shall be required and maintained by Consultant). Neither Norwegian nor Norwegian’s affiliated companies shall have any obligation whatsoever to compensate Consultant or any of its employees or agents on account of any injuries which Consultant or any of its employees or agents may sustain as a result of or in the course of the performance of the Services, and Consultant hereby waives, on their own behalf and on behalf of any persons claiming by, through or under Consultant, any and all rights of recovery which Consultant may now or hereafter have against Norwegian or any Norwegian affiliated company on account of any such injuries.
+	</p>
+
+	<br/>	
+	<div style='width:100%;text-align:center;'>
+		<p>
+		END OF EXHIBIT C
+		</p>
+	</div>
+
+
+		<div style='width:100%;text-align:center;font-weight:bold'>
+	Exhibit D
+	</div>
+
+	<br/>
+	<br/>	
+	<br/>
+    	<br/>
+
+
+	<div style='width:100%;text-align:center;font-weight:bold'>
+     DROPDOWN<br/>
+	 <b>BLANK FOR TEXT EDITING</b>
+	</div>
+	<br/>
+	<br/>
+	<br/>	
+	<div style='width:100%;text-align:center;'>
+		<p>
+		END OF EXHIBIT D
+		</p>
+	</div>
+

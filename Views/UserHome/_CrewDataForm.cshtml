@@ -1,0 +1,285 @@
+﻿@{
+    Layout = "";
+}
+<style>
+    .small-txtbox{
+        width:80px;
+    }
+      .col-md-4 {
+  width: 33.33333333%;
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+  }
+      .col-md-8{
+      width: 66.66666667%;
+      position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+      }
+</style>
+@model CruiseEntertainmentManagnmentSystem.ViewModel.CrewDataFormViewModel
+<div style="width:90%;border:1px solid black;padding:20px;height:1000px;margin:0 auto;">
+    <h4 style="font-weight:800;">Norwegian Cruise Line - Crew Data Form</h4>
+    <div class="row" id="First">
+        <div>
+           <label class="col-md-4">Hire Date</label>
+          @Html.TextBoxFor(model => model.HireDate,"{0:dd/MM/yyyy}")
+            <br />
+            <span style="padding-left:100px;">(month)</span><span style="padding-left: 20px;">(day)</span><span style="padding-left: 20px;">(year)</span>
+            <div style="float:right;margin-top:-25px;">
+                <label  class="col-md-4">MAPSID</label>
+                @Html.TextBoxFor(model => model.MapsID)
+            </div>
+        </div>
+    </div>
+    <div class="row" id="second" style="display:flex;">
+        <div style="width:60%;float:left;">
+            <label  class="col-md-4">Name</label>
+            @Html.TextBoxFor(model => model.FullName,new {@style="margin-left:24px;" })
+            <br />
+            <span style="padding-left:100px;">(last)</span><span style="padding-left:20px;">(First)</span><span style="padding-left:20px;">(middle)</span>
+        </div>
+        <div style="width:40%;text-align:right;float:left;">
+            <label style="float:left;"  class="col-md-4">Dept</label>
+            @Html.TextBoxFor(model => model.Department)
+            <br />
+            <label style="float:left;"  class="col-md-4">Position</label>
+            @Html.TextBoxFor(model => model.PositionName)
+            <br />
+            <label style="float:left;"  class="col-md-4">Onboard/Ship</label>
+            @Html.TextBoxFor(model => model.ShipName,new {style= "margin-right: 4px;"})
+        </div>
+    </div>
+    <div class="row" id="third">
+        <label  class="col-md-4" style="margin-top:0px">Address</label>
+        @Html.TextAreaFor(model => model.Address, new { style = "margin-left:11px;width:250px;height:60px;" })
+        <br />
+        @*<input type="text" style="margin-left: 98px;width:250px;" />*@
+        <div id="address" style="display:flex;">
+            <div style="float:left;">
+                <label  class="col-md-4">City</label>
+                @Html.TextBoxFor(model => model.City ,new {@style= "width:100px;margin-left:36px;" })
+            </div>
+            <div style="float:left;">
+                <label  class="col-md-4">Zip</label>
+                @Html.TextBoxFor(model => model.Zip, new { @style = "width:94px;" })
+            </div>
+        </div>   
+    </div>
+    <div id="country">
+        <label class="col-md-4">Country</label>
+        @Html.TextBoxFor(model => model.Country, new { @style = "margin-left:11px;width:250px;" })
+    </div>
+    <div id="fourth">
+        <label  class="col-md-4">Phone#</label>
+
+        @Html.TextBoxFor(model => model.Phone ,new {@style= "margin-left:16px;width:250px;" })
+        <br />
+        @*<span style="margin-left: 80px;">(country code), (city code), #</span>*@
+    </div>
+    <div id="fifth">
+        <label  class="col-md-4">Email</label>
+        @Html.TextBoxFor(model => model.EMail, new { @style = "margin-left:25px;width:250px;" })
+        @*<input type="text" style="width: 241px;margin-left: 24px;margin-top: 10px;" />*@
+    </div>
+    <div id="six">
+        <label  class="col-md-4">SS#(US Only)</label>
+        @Html.TextBoxFor(model => model.SSN, new { @style = "width:221px;" })
+        @*<input type="text" style="width: 188px;margin-left: 24px;margin-top: 10px;" />*@
+    </div>
+    <div id="seven">
+        <label  class="col-md-4">ARC#</label>
+        @Html.TextBoxFor(model => model.ARC, new { @style = "margin-left:52px;width:221px;" })
+        @*<input type="text" style="width: 241px;margin-left: 24px;margin-top: 10px;" />*@
+    </div>
+    <div id="eight" style="display:flex;margin-top: 10px;">
+        <div id="gender" style="width:40%;float:left;">
+            <label  class="col-md-4">Sex</label>
+            @Html.RadioButtonFor(model => model.Sex, "1", new {@style= "margin-left:65px;" })<span style="width:80px;text-align:center;">male</span>
+            @Html.RadioButtonFor(model => model.Sex, "0")<span style="width:80px;text-align:center;">female</span>
+            @*<input type="text" style="width:80px;margin-left: 42px;" /><input type="text" style="width:80px;" />*@
+            <br />
+            @*<div style="display:flex;margin-left: 70px;">
+            </div>*@
+        </div>
+        <div id="status" style="width:60%;float:left;">
+            <div style="display:flex">
+                <label class="col-md-4">Marital Status</label>
+                @Html.RadioButtonFor(model => model.MaritalStatus, "0")<span style="width:80px;text-align:center;">single</span>
+                @Html.RadioButtonFor(model => model.MaritalStatus, "1")<span style="width:80px;text-align:center;">maried</span>
+                @Html.RadioButtonFor(model => model.MaritalStatus, "2")<span style="width:80px;text-align:center;">divorced</span>
+                @Html.RadioButtonFor(model => model.MaritalStatus, "3")<span style="width:80px;text-align:center;">widowed</span>
+                @Html.RadioButtonFor(model => model.MaritalStatus, "4")<span style="width:80px;text-align:center;">separated</span>
+            </div>
+        </div>
+    </div>
+    <div id="nine" style="display:flex">
+        <div id="dob" style="width:50%;float:left;">
+            <label  class="col-md-4">D.O.B</label>
+            @Html.TextBoxFor(model => model.Dob, "{0:dd/MM/yyyy}",new {@style= "margin-left:25px;" })
+            <br />
+            <span style="padding-left:100px;">(month)</span><span style="padding-left:20px;">(day)</span><span style="padding-left:20px;">(year)</span>
+        </div>
+        <div id="body-features" style="width:50%;float:left;">
+            @*<input type="text" style="width:80px;" /><input type="text" style="width:80px;" /><input type="text" style="width:80px;" /><input type="text" style="width:80px;" />*@
+            <br />
+            <div style="display:flex">
+                @Html.TextBoxFor(model => model.Hair, new { @class = "small-txtbox" })
+                @Html.TextBoxFor(model => model.Eye, new { @class = "small-txtbox" })               
+                @Html.TextBoxFor(model => model.Height, new { @class = "small-txtbox" })              
+                @Html.TextBoxFor(model => model.Weight, new { @class = "small-txtbox" })             
+            </div>
+            <div>
+                <span style="width:80px;text-align:center;display:block;float:left;">(height)</span>
+                <span style="width:80px;text-align:center;display:block;float:left;">(hair)</span>
+                <span style="width:80px;text-align:center;display:block;float:left;">(eyes)</span>
+                <span style="width:80px;text-align:center;display:block;float:left;">(weight)</span>
+            </div>
+        </div>
+    </div>
+    <div id="ten" style="display:flex;margin-top:10px;">
+        <div id="birthplace" style="width:50%;float:left;">
+            <label  class="col-md-4">Birthplace</label>
+
+            @Html.TextBoxFor(model => model.BirthPlace, new { @style = "margin-left:64px;" })
+        </div>
+        <div id="homeairport" style="width:50%;float:left;">
+            <label class="col-md-4">Home Airport</label>
+
+            @Html.TextBoxFor(model => model.HomeAirPort)
+        </div>
+    </div>
+    <div id="eleven" style="margin-top:10px;">
+        <div id="citizen" style="width:50%">
+            <label class="col-md-4">Citizenship/Country</label>
+            @Html.TextBoxFor(model => model.Country, new { @style = "" })
+        </div>
+    </div>
+    <div id="twelve" style="display:flex;margin-top:10px;">
+        <div id="passport" style="width:50%;float:left;">
+            <label  class="col-md-4">Passport #</label>
+            @Html.TextBoxFor(model => model.PassportNumber,new { @style = "margin-left:63px;" })
+        </div>
+        <div id="p_date" style="width:50%;float:left;">
+            <label  class="col-md-4">Passport Issue Date</label>
+            @Html.TextBoxFor(model => model.IssueDate,"{0:dd/MM/yyyy}")
+            <br />
+            <span style="padding-left:20px;margin-left:140px;">(month)</span><span style="padding-left: 20px;">(day)</span><span style="padding-left: 20px;">(year)</span>
+        </div>
+    </div>
+    <div id="thirteen" style="display:flex">
+        <div id="country-issue" style="width:50%;float:left;">
+            <label  class="col-md-4">Country / City of issue</label>
+            @Html.TextBoxFor(model => model.IssueCountry, new { @style = "margin-left:0px;" })
+        </div>
+        <div id="i-date" style="width:50%;float:left;">
+            <label  class="col-md-4">Passport Expire Date</label>
+            @Html.TextBoxFor(model => model.ExpireDate, "{0:dd/MM/yyyy}")
+            <br />
+            <span style="padding-left:20px;margin-left:140px;">(month)</span><span style="padding-left: 20px;">(day)</span><span style="padding-left: 20px;">(year)</span>
+        </div>
+    </div>
+    <div id="fortheen" style="display:flex">
+        <div id="visa" style="width:50%;float:left;">
+            <label  class="col-md-4">Visa #</label>
+            @Html.TextBoxFor(model => model.VisaNumber ,new {@style= "margin-left:90px;" })
+        </div>
+        <div id="v_date" style="width:50%;float:left;">
+            <label  class="col-md-4">C-1/D visa expires</label>
+            @Html.TextBoxFor(model => model.VisaExpireDate, "{0:dd/MM/yyyy}")
+            <br />
+            <span style="padding-left:20px;margin-left:140px;">(month)</span><span style="padding-left: 20px;">(day)</span><span style="padding-left: 20px;">(year)</span>
+        </div>
+    </div>
+    <div id="fifteen">
+        <label  class="col-md-4">Date of last physical exam</label>
+        @Html.TextBoxFor(model => model.LastPhyscialExamDate, "{0:dd/MM/yyyy}",new {@style= "margin-left:32px;" })
+        <br />
+        <span style="padding-left:125px;margin-left: 110px;">(month)</span><span style="padding-left:20px;">(day)</span><span style="padding-left:20px;">(year)</span>
+    </div>
+    <div id="sixteen">
+        <label  class="col-md-4">Languages (other than English)</label>
+        @Html.TextBoxFor(model => model.Languages)
+    </div>
+    <div id="seventeen" style="display:flex">
+        <div id="emergency-contact" style="width:40%;float:left;">
+            <h4 style="font-weight:800;text-decoration:underline">Emergency Contact</h4>
+            <div class="row" style="margin-top:10px">
+                <label  class="col-md-4">Name</label>
+                @Html.TextBoxFor(model => model.EmergencyContactName, new { @style = "margin-left:42px;" })
+            </div>
+            <div class="row" style="margin-top:10px">
+                <label  class="col-md-4">Relationship</label>
+                @Html.TextBoxFor(model => model.EmergencyRelation)
+            </div>
+            <div class="row" style="margin-top:10px">
+                <label  class="col-md-4">Address</label>
+                @Html.TextBoxFor(model => model.EmergencyAddress, new { @style = "margin-left:27px;" })
+            </div>
+            @*<div class="row">
+                    <label></label>
+                    <input type="text" style="margin-left:85px;"/>
+                </div>
+                <div class="row" style="margin-top:10px">
+                    <label>City/State</label>
+                    <input type="text" style="margin-left:18px;"/>
+                </div>
+                <div class="row">
+                    <label>Country</label>
+                    <input type="text" style="margin-left:30px;"/>
+                </div>*@
+            <div class="row">
+                <label  class="col-md-4">Phone#</label>
+                @Html.TextBoxFor(model => model.EmergencyPhone, new { @style = "margin-left:32px;" })
+            </div>
+            @*<div class="row">
+                    <label>Other# ie:</label>
+                    <input type="text" style="margin-left:18px;"/>
+                </div>
+                <div class="row">
+                    <label>Fax/Cell</label>
+                    <input type="text" style="margin-left:27px;"/>
+                </div>*@
+        </div>
+        <div id="depantant-information" style="width:60%;float:left;">
+            <h4 style="font-weight:800;text-decoration:underline">Depandent Information</h4>
+            <div class="row" style="margin-top:10px">
+                <label>Name</label>
+                @Html.TextBoxFor(model => model.DependentName1)
+                <label>Date Of Birth</label>
+                @Html.TextBoxFor(model => model.DependentDob1, "{0:dd/MM/yyyy}")
+            </div>
+            <div class="row" style="margin-top:10px">
+                <label>Name</label>
+                @Html.TextBoxFor(model => model.DependentName2)
+                <label>Date Of Birth</label>
+                @Html.TextBoxFor(model => model.DependentDob2, "{0:dd/MM/yyyy}")
+            </div>
+            <div class="row" style="margin-top:10px">
+                <label>Name</label>
+                @Html.TextBoxFor(model => model.DependentName3)
+                <label>Date Of Birth</label>
+                @Html.TextBoxFor(model => model.DependentDob3, "{0:dd/MM/yyyy}")
+            </div>
+            <div class="row" style="margin-top:10px">
+                <label>Name</label>
+                @Html.TextBoxFor(model => model.DependentName4)
+                <label>Date Of Birth</label>
+                @Html.TextBoxFor(model => model.DependentDob4, "{0:dd/MM/yyyy}")
+            </div>
+        </div>
+    </div>
+    <div id="eighteen" style="display:flex;margin-top:10px;">
+        <div id="sign-off" style="width:50%;float:left;">
+            <label>Sign Off Date</label>
+            @Html.TextBoxFor(model => model.SignOffDate, "{0:dd/MM/yyyy}")
+        </div>
+        <div id="signature" style="width:50%;float:left;">
+            <label>Signature</label>
+            <input type="text" style="border:none;border-bottom:1px solid black; width:240px;" />
+        </div>
+    </div>
+</div>

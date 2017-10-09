@@ -1,0 +1,74 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@ViewBag.Title - My ASP.NET MVC Application</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+
+
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    @*<script src="~/Scripts/jquery-2.2.0.min.js"></script>*@
+    <link href="~/Content/CCStyle.css" rel="stylesheet" />
+    @*<script src="~/Scripts/jquery-1.8.2.min.js"></script>*@
+
+
+    <script src="~/Scripts/gridmvc.min.js"></script>
+    @*<script src="~/Scripts/bootstrap.min.js"></script>*@
+    <link href="~/Content/custom.css" rel="stylesheet" />
+    <link href="~/Content/Gridmvc.css" rel="stylesheet" />
+    <script src="~/Scripts/Common.js"></script>
+    <script src="~/Scripts/Schedule.js"></script>
+    @*<link href="~/Content/Site.css" rel="stylesheet" />*@
+    @*@Styles.Render("~/Content/css")*@
+    <script src="~/Scripts/CustomCalendar.js"></script>
+    <script src="~/Scripts/Contractors.js"></script>
+    @Scripts.Render("~/bundles/modernizr")
+    @*<script src="~/Scripts/uikit.min.js"></script>
+        <link href="~/Content/uikit.gradient.min.css" rel="stylesheet" />
+        <link href="~/Content/uikit.min.css" rel="stylesheet" />*@
+
+    <link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
+    <!-- Load jQuery JS -->
+    <!-- Load jQuery UI Main JS  -->
+
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
+    <script>
+
+            $(document).ready(function () {
+
+                $(".date").datepicker({
+                    changeMonth: true,//this option for allowing user to select month
+                    changeYear: true //this option for allowing user to select from year range
+                });
+            });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 text-left">
+                <img src="~/Images/logo.png" class="logo" />
+            </div>
+            <div class="col-md-6"></div>    
+        </div>   
+        <div class="row logo-bottom">
+        </div>
+    </div>
+      
+    <div class="container">
+        @RenderBody()
+    </div>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

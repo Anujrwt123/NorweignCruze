@@ -1,0 +1,711 @@
+﻿@model CruiseEntertainmentManagnmentSystem.Models.Contractor
+
+@{
+    ViewBag.Title = "Create";
+}
+<style>
+    #AgreementType 
+    {
+        width:60%;
+    }
+    #ContractorAgreement
+    {
+        display:none;
+        width:14%;
+
+    }
+
+</style>
+<div class="row">
+    <h4 class="page-heading text-center">Contractor</h4>
+</div>
+
+@if(ViewBag.Errors=="1")
+{
+    <script>
+        $(document).ready(function () {
+
+            var shows = sessionStorage.getItem('shows');
+            if(shows!=null)
+            {
+                $('#ulShows').html(shows);
+            }
+            
+
+            var brands = sessionStorage.getItem('brands');
+
+            if(brands!=null)
+            {
+                $('#Brands').html(brands);
+            }
+        });
+        
+    </script>
+}
+
+@using (Html.BeginForm("Create", "Contractors", FormMethod.Post, new { onsubmit="return checkValidation()"}))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <br />
+   
+    <div class="row">
+        <div class="col-md-6">
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.AgreementType)
+            </div>
+            <div class="editor-field">     
+                @Html.DropDownList("AgreementType", "select---")
+                @Html.DropDownList("ContractorAgreement", "select---")
+                @*<select id="contractagree" style="display:none; width:13%;">
+                    <option value="ncl">NCL</option>
+                    <option value="oceana">OCEANA</option>
+                    <option value="regent">REGENT</option>
+                </select>*@                                           
+            </div>
+            
+            @*<div id="contractagree" style="display:none">
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.ContractorAgreement)
+                </div>
+                <div class="">
+                <select>
+                    <option value="ncl">NCL</option>
+                    <option value="oceana">OCEANA</option>
+                    <option value="regent">REGENT</option>
+                </select>
+                </div>
+            </div>*@
+            
+            
+
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.InitiatedDate)
+            </div>
+            <div class="editor-field">
+                <input type="text" name="InitiatedDate" id="InitiatedDate" value="@ViewBag.IniitaitedDate" class="date" />
+                  @*@Html.EditorFor(model => model.InitiatedDate, new { @class="date"})*@
+                @Html.ValidationMessageFor(model => model.InitiatedDate)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.position)
+            </div>
+            <div class="editor-field">
+                @*@Html.EditorFor(model => model.position)*@
+                @Html.DropDownList("position", "select---")
+                @Html.ValidationMessageFor(model => model.position)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Shows)
+            </div>
+            <div class="editor-field shows-list">
+
+                <ul id="ulShows" class="nonbullet"></ul>
+                @*<select id="Shows" name="Shows">
+                <option value="-1">select--</option>
+            </select>*@
+                @*@Html.DropDownList("Shows","select--")*@
+                @*@Html.DropDownListFor(model=>model.Shows,ViewBag.Shows as List<SelectListItem>,"select--",new { @class="form-control"})*@
+                @*@Html.EditorFor(model => model.Shows)*@
+                @Html.ValidationMessageFor(model => model.Shows)
+            </div>
+            
+        </div>
+        <div class="col-md-6">
+            <div class="editor-label">
+                Person
+            </div>
+            <div class="editor-field">
+                @Html.DropDownList("MPerson", null, "select--", new { ID = "MockPerson" })
+                @Html.ValidationMessageFor(model => model.Person)
+            </div>
+            <div class="editor-label">
+                <label>Ship's Brand</label>
+            </div>
+            <div class="editor-field">
+                @Html.DropDownList("Brands","select--")              
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.ship)
+            </div>
+            <div class="editor-field">
+                @*@Html.EditorFor(model => model.ship)*@
+                @Html.DropDownList("ship", "select---")
+                @Html.ValidationMessageFor(model => model.ship)
+            </div>
+            
+            
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-md-6">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Term)
+            </div>
+            <div class="editor-field">
+                @Html.HiddenFor(model => model.Term)
+                <label class="termlabel">Start Date</label>  <input type="text" name="Term1" id="Term1" class="date" value="" />
+                <label class="termlabel">End Date</label>  <input type="text" name="Term2" id="Term2" class="date" value="" />
+                @* @Html.EditorFor(model => model.Term)*@
+                @Html.ValidationMessageFor(model => model.Term)
+            </div>
+            @Html.HiddenFor(model => model.EndDate)
+            
+            @*<div class="editor-label">
+                    @Html.LabelFor(model => model.EndDate)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.EndDate)
+                    <input type="date" name="EndDate" id="EndDate" />
+                    @Html.ValidationMessageFor(model => model.EndDate)
+                </div>*@
+            <div class="editor-label">
+                @Html.LabelFor(model => model.TampaDates)
+            </div>
+            <div class="editor-field">
+
+                @Html.HiddenFor(model => model.TampaDates)
+                
+                <label class="termlabel">Start Date</label> <input type="text" style="width: 30%;" name="tampadate1" id="tampadate1" class="date" />
+                <label class="termlabel">End Date</label>   <input type="text" style="width: 30%;" name="tampadate2" id="tampadate2" class="date" />
+                @*@Html.EditorFor(model => model.TampaDates)
+            @Html.ValidationMessageFor(model => model.TampaDates)*@
+            </div>
+        </div>
+        <div class="col-md-6">
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.shipDates)
+            </div>
+            <div class="editor-field">
+                @*@Html.EditorFor(model => model.shipDates)*@
+                @Html.HiddenFor(model => model.shipDates)
+                
+                <label class="termlabel">Start Date</label>    <input type="text" name="shipDates1" id="shipDates1" class="date" />
+                <label class="termlabel">End Date</label>   <input type="text" name="shipDates2" id="shipDates2" class="date" />
+                @Html.ValidationMessageFor(model => model.shipDates)
+            </div>
+
+        </div>
+    </div>
+    
+
+    @*<div class="row">
+        <div class="col-md-6">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Days_On_Travel)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Days_On_Travel)
+                @Html.ValidationMessageFor(model => model.Days_On_Travel)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Days_On_Land)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Days_On_Land)
+                @Html.ValidationMessageFor(model => model.Days_On_Land)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Per_Diem_On_Land)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Per_Diem_On_Land)
+                @Html.ValidationMessageFor(model => model.Per_Diem_On_Land)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Total_Per_Diem_On_Land)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Total_Per_Diem_On_Land)
+                @Html.ValidationMessageFor(model => model.Total_Per_Diem_On_Land)
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Total_Per_Diem_On_Travel)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Total_Per_Diem_On_Travel)
+                @Html.ValidationMessageFor(model => model.Total_Per_Diem_On_Travel)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Days_OnBoard)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Days_OnBoard)
+                @Html.ValidationMessageFor(model => model.Days_OnBoard)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Per_Diem_On_Board)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Per_Diem_On_Board)
+                @Html.ValidationMessageFor(model => model.Per_Diem_On_Board)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Total_Per_Diem_On_Board)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Total_Per_Diem_On_Board)
+                @Html.ValidationMessageFor(model => model.Total_Per_Diem_On_Board)
+            </div>
+        </div>
+    </div>*@
+    <hr />
+    <div class="row">
+        <div class="col-md-6">   
+            @if (ViewBag.Option != null && ViewBag.Option == 1)
+            {
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Hourly_Rate)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Hourly_Rate)
+                    @Html.ValidationMessageFor(model => model.Hourly_Rate)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Hours_per_day)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Hours_per_day)
+                    @Html.ValidationMessageFor(model => model.Hours_per_day)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Hours_per_week)
+                </div>
+                <div class="editor-field">
+                    <input type="text" name="Hours_per_week" ID="Hours_per_week" value="40" />
+                    @*@Html.EditorFor(model => model.Hours_per_week)*@
+                    @Html.ValidationMessageFor(model => model.Hours_per_week)
+                </div>
+            }         
+                
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Day_Rate)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Day_Rate)
+                @Html.ValidationMessageFor(model => model.Day_Rate)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.BaseSalary)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.BaseSalary)
+                @Html.ValidationMessageFor(model => model.BaseSalary)
+            </div>
+
+        </div>
+        <div class="col-md-6">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Total_Fee)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Total_Fee)
+                @Html.ValidationMessageFor(model => model.Total_Fee)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Total_Per_Diem)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Total_Per_Diem)
+                @Html.ValidationMessageFor(model => model.Total_Per_Diem)
+            </div>
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="row text-right">            
+                <input type="button" id="addpay" value="Add Payment" style="height:28px" class="btn" />
+            <input type="button" id="deletepay" value="Delete Payment" style="height:28px" class="btn" />            
+        </div>
+        <div class="col-md-6">
+           
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Payment_1)
+            </div>
+            <div class="editor-field">
+                <input type="text" id="Payment_1" name="Payment_1" value="0.0" class="text-box single-line " />
+                @*@Html.EditorFor(model => model.Payment_1)*@
+                @*@Html.ValidationMessageFor(model => model.Payment_1)*@
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Payment_1_Date)
+            </div>
+            <div class="editor-field">
+                @*@Html.EditorFor(model => model.Payment_2_Date)*@
+                <input type="text" name="Payment_1_Date" id="Payment_1_Date" class="date" value="@ViewBag.Payment1Date"/>
+                @*@Html.ValidationMessageFor(model => model.Payment_2_Date)*@
+            </div>
+            <div id="pay3" hidden>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Payment_3)
+                </div>
+                <div class="editor-field">
+                    <input type="text" id="Payment_3" name="Payment_3" value="0.0"  class="text-box single-line " />                  
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Payment_3_Date)
+                </div>
+                <div class="editor-field">
+                    <input type="text" name="Payment_3_Date" id="Payment_3_Date" class="date" value="@ViewBag.Payment3Date" />
+                </div>
+            </div>
+            <div id="pay5" hidden>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Payment_5)
+                </div>
+                <div class="editor-field">
+                    <input type="text" id="Payment_5" name="Payment_5" value="0.0" class="text-box single-line " />
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Payment_5_Date)
+                </div>
+                <div class="editor-field">
+                    <input type="text" name="Payment_5_Date" id="Payment_5_Date" class="date" value="@ViewBag.Payment5Date" />
+                </div>
+            </div>
+           </div>
+        <div class="col-md-6">         
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Payment_2)                             
+            </div>
+
+            <div class="editor-field">
+                <input type="text" id="Payment_2" name="Payment_2" value="0.0" class="text-box single-line" />
+                @*@Html.ValidationMessageFor(model => model.Payment_2)*@
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Payment_2_Date)
+            </div>
+            <div class="editor-field">
+                @*@Html.EditorFor(model => model.Payment_2_Date)*@
+
+                <input type="text" name="Payment_2_Date" id="Payment_2_Date" class="date" value="@ViewBag.Payment2Date " />
+                @*@Html.ValidationMessageFor(model => model.Payment_2_Date)*@
+            </div>
+            <div id="pay4" hidden>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Payment_4)
+                </div>
+                <div class="editor-field">
+                    <input type="text" id="Payment_4" name="Payment_4" value="0.0" class="text-box single-line " />
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Payment_4_Date)
+                </div>
+                <div class="editor-field">
+                    <input type="text" name="Payment_4_Date" id="Payment_4_Date" class="date" value="@ViewBag.Payment4Date" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-md-6">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Address)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Address)
+                @Html.ValidationMessageFor(model => model.Address)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.State)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.State)
+                @Html.ValidationMessageFor(model => model.State)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.City)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.City)
+                @Html.ValidationMessageFor(model => model.City)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Zip)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Zip)
+                @Html.ValidationMessageFor(model => model.Zip)
+            </div>
+            
+        </div>
+        <div class="col-md-6">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Phone)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Phone)
+                @Html.ValidationMessageFor(model => model.Phone)
+            </div>
+            
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Email)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Email)
+                @Html.ValidationMessageFor(model => model.Email)
+            </div>
+            @*<div class="editor-label">
+                @Html.LabelFor(model => model.SSN)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.SSN)                                             
+            </div>*@
+            <input type="hidden" id="Person" name="Person" />
+            <input type="hidden" value="@ViewBag.Option" id="ContractorType" name="ContractorType" />
+            @Html.HiddenFor(model=>model.ShowsList)            
+            <div style ="margin-top:20px;">
+                <input type="submit" value="Create" class="btn" />
+                <a href="#" onclick="goToPrevious('@ViewBag.ReturnUrl')">Cancel</a>
+                @*@Html.ActionLink("Cancel", "Index")*@
+            </div>
+        </div>
+       
+     </div>
+
+    @*<p>
+            <input type="submit"  value="Create" />
+        </p>*@
+
+
+}
+<br />
+@*<div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>*@
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+<script>
+    function checkValidation() {
+        debugger;
+        var val = $('#AgreementType').val();
+        
+        var shows = $('#ulShows').html();
+        sessionStorage.setItem('shows', shows);
+
+        var brands = $('#Brands').html();
+        sessionStorage.setItem('brands',brands);
+
+        if (val == undefined || val < 1 || val == null) {
+            $('#errormsg').html("select Contractor \"Agreement Type\".");
+            return false;
+        }
+        var count = 0;
+        var data = "";
+        $('#ulShows>li>input[type="checkbox"]').each(function (idx,el) {
+            debugger;
+          
+            if (el.checked) {
+                data += el.getAttribute('value') + ',';
+            }
+            count++;
+        });
+        if (count > 0)
+        {
+            var idx = data.lastIndexOf(',');
+            data = data.substr(0, idx);
+            $('#ShowsList').val(data);
+        }
+        else
+        {
+            alert('show is not selected.');
+            return false;
+        }
+        
+        return true;
+
+    }
+
+
+    //$(document).on('click','.es-list li', function () {
+    //    $('#loadingDiv').css('display', 'block');
+    //    var person = 0;
+    //    var length = $('.es-list li').length;
+
+    //    person = $(this).val();
+    //    $('#Person').val(person);
+    //    $.ajax({
+    //        url: '/Contractors/GetPersonByID?ID=' + person,
+    //        type: 'GET',
+    //        success: function (data) {
+    //            //debugger;
+    //            if (data != "-1") {
+    //                if (confirm('data will change in some of given fields, do you want to proceed?')) {
+    //                    $('#Address').val(data.Address);
+    //                    $('#State').val(data.State);
+    //                    $('#City').val(data.City);
+    //                    $('#Zip').val(data.Zip);
+    //                    $('#Phone').val(data.Phone);
+    //                    $('#Email').val(data.Email);
+    //                    $('#SSN').val(data.SSN);
+    //                    $('#Day_Rate').val(data.DayRate);
+    //                    $('#BaseSalary').val(data.WeeklySalary);
+    //                }
+
+    //            }
+    //            $('.es-list').css('display', 'none');
+    //            $('#loadingDiv').css('display', 'none');
+    //        },
+    //        error: function (err) {
+
+    //            alert(err.statusText);
+    //        }
+
+    //    })
+
+    //});
+
+    //$(document).on('change', '#MockPerson', function () {
+
+    //    //debugger;
+    //    $('#loadingDiv').css('display', 'block');
+    //    var person = 0;
+    //    var length=$('.es-list li').length;
+    //    for (i = 0; i < length; i++)
+    //    {
+    //      //  //debugger;
+    //        if ($('.es-list li').eq(i).attr('class') == "selected") {
+    //            $('#MockPerson').val($('.es-list li').eq(i).html());
+    //            person = $('.es-list li').eq(i).val();
+    //            $('#Person').val(person);
+    //            break;
+    //        }
+    //    }
+    //    //$('.es-list li').each(function (idx, val) {
+
+
+            
+    //    //});
+
+    //    $('#Person').val(person);
+
+    //    $.ajax({
+    //        url: '/Contractors/GetPersonByID?ID=' + person,
+    //        type: 'GET',
+    //        success: function (data) {
+    //            //debugger;
+    //            if (data != "-1") {
+    //                if (confirm('data will change in some of given fields, do you want to proceed?'))
+    //                {
+    //                    $('#Address').val(data.Address);
+    //                    $('#State').val(data.State);
+    //                    $('#City').val(data.City);
+    //                    $('#Zip').val(data.Zip);
+    //                    $('#Phone').val(data.Phone);
+    //                    $('#Email').val(data.Email);
+    //                    $('#SSN').val(data.SSN);
+    //                    $('#Day_Rate').val(data.DayRate);
+    //                    $('#BaseSalary').val(data.WeeklySalary);
+    //                }
+                    
+    //            }
+    //            $('.es-list').css('display', 'none');
+    //            $('#loadingDiv').css('display', 'none');
+    //        },
+    //        error: function (err) {
+
+    //            alert(err.statusText);
+    //        }
+
+    //    })
+    //})
+
+
+    $(document).on('focusout', '#MockPerson', function () {
+
+        //debugger;
+        $('#loadingDiv').css('display', 'block');
+        var person = 0;
+        var length = $('.es-list li').length;
+        for (i = 0; i < length; i++) {
+            //  //debugger;
+            if ($('.es-list li').eq(i).attr('class') == "selected") {
+                $('#MockPerson').val($('.es-list li').eq(i).html());
+                person = $('.es-list li').eq(i).val();
+                $('#Person').val(person);
+                break;
+            }
+        }
+        //$('.es-list li').each(function (idx, val) {
+
+
+
+        //});
+
+        $('#Person').val(person);
+
+        $.ajax({
+            url: '/Contractors/GetPersonByID?ID=' + person,
+            type: 'GET',
+            success: function (data) {
+                //debugger;
+                if (data != "-1") {
+                    if (confirm('This action will change some of the data in the fields below.Proceed?')) {
+                        $('#Address').val(data.Address);
+                        $('#State').val(data.State);
+                        $('#City').val(data.City);
+                        $('#Zip').val(data.Zip);
+                        $('#Phone').val(data.Phone);
+                        $('#Email').val(data.Email);
+                        $('#SSN').val(data.SSN);
+                        $('#Day_Rate').val(data.DayRate);
+                        $('#BaseSalary').val(data.WeeklySalary);
+                    }
+
+                }
+                $('.es-list').css('display', 'none');
+                $('#loadingDiv').css('display', 'none');
+            },
+            error: function (err) {
+
+                alert(err.statusText);
+            }
+
+        })
+    })
+
+    window.onload = function () {
+        $('#MockPerson').editableSelect({ effects: 'fade' });                
+    }
+
+        
+    $("#AgreementType").change(function ()
+    {
+        debugger;
+
+        var id = $("#AgreementType").val();
+
+        if (id == 1) {
+            $("#ContractorAgreement").show();
+        }
+        else
+        {
+            $("#ContractorAgreement").hide();
+        }
+
+
+    })
+
+</script>
+    
+
+}
+
+

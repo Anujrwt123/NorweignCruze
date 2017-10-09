@@ -1,0 +1,26 @@
+﻿@model IEnumerable<CruiseEntertainmentManagnmentSystem.Models.ContactList>
+
+@foreach (var item in Model)
+{
+    <div class="row">
+        <div class="col-md-4">
+            <hr />
+            <div class="form-group">
+                <label class="control-label ncl-label">@item.Name</label>
+            </div>
+            <div class="form-group">
+                <label class="control-label ncl-label">@item.Position</label>
+            </div>
+            <div class="form-group">
+                <label class="control-label ncl-label">@item.Phone</label>
+            </div>
+            <div class="form-group">
+                <label class="control-label ncl-label">@item.Email</label>
+            </div>
+            <hr />
+        </div>
+    </div>
+}
+
+
+

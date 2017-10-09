@@ -1,0 +1,153 @@
+﻿@model CruiseEntertainmentManagnmentSystem.ViewModel.FastPayFormViewModel
+@{
+    Layout = null;
+}
+<style>
+    .form-control{
+        padding-left:20px;
+    }
+</style>
+<div class="container" id="FasTPay" style="border: 1px solid #cad4e2;margin-top: 10px;padding-top: 10px;padding-bottom: 10px;height:1000px;width:100%;margin:0 auto;font-size:15px">
+    <div class="row" style="display:flex;width:100%;">
+        <div class="col-md-3" style="position: relative; min-height: 1px;padding-right: 15px;padding-left: 15px; width: 25%;float:left;"><img src="http://localhost:64819/Images/User/NCL-1.jpg" alt="" class="fastpay-img" style="width: 70%;"/></div>
+        <div class="col-md-3 col-md-offset-6 text-right"style="min-height: 1px;padding-right: 15px;padding-left: 15px; width: 25%;margin-left:78%;"><img src="http://localhost:64819/Images/User/NCL-2.jpg" alt="" class="fastpay-img" style="width: 70%;"/></div>
+    </div>
+    <div class="row" style="width:100%;">
+        <div class="col-md-12" style="padding-right: 15px;padding-left:15px;width:100%;">
+            <h4 class="text-center fastpay-header" style="text-align:center;color: black;font-weight: 700;">Fast Pay System</h4>
+            <p>
+                In order to pay our business partners in a more expedient fashion, we are setting up a 'Fast Pay' system, whereby we plan to transfer funds electronically, instead of processing the customary check. This should speed up processing time.
+            </p>
+            <p>
+                Please kindly submit the following information to:<a href=""> icharvey@ncl.com</a> as soon as possible:
+            </p>
+        </div>
+    </div>
+    <div class="form-group row" style="margin-bottom:10px;">
+        <div class="col-md-12" style="padding-right: 15px;padding-left: 15px;">
+            <form action="">
+                <div>
+                    <div class="row form-group" style="margin-bottom:10px;display:flex;">
+                        <label class="control-label col-md-3 text-left" style="font-weight:700;width:25%;text-align:left;padding-left:15px;padding-right:15px;float:left;">Vendor Name:</label>
+                        <div class="col-md-8" style="position: relative;min-height: 1px;padding-right:15px;padding-left:15px;width:66.66666667%;;float:left;">
+                            @Html.TextBoxFor(model=>model.FullName,new { @class= "form-control", style= "width:100%" })
+                            @*<input type="text" class="form-control" style="width:100%"/>*@
+                        </div>
+                    </div>
+
+                    <div class="row form-group" style="margin-bottom:10px;display:flex;">
+                        <label class="control-label col-md-3 text-left"style="font-weight:700;width:25%;text-align:left;padding-left:15px;padding-right:15px;float:left;">Vendor Address:</label>
+                        <div class="col-md-8" style="position: relative;min-height: 1px;padding-right: 15px;padding-left: 15px;width:66.66666667%;float:left;">
+                            @Html.TextBoxFor(model => model.Address, new { @class = "form-control", style = "width:100%" })
+                            @*<input type="text" class="form-control" style="width:100%"/>*@
+                        </div>
+                    </div>
+
+                    <div class="row form-group" style="margin-bottom:10px;display:flex;">
+                        <label class="control-label col-md-3 text-left"style="font-weight:700;width:25%;text-align:left;padding-left:15px;padding-right:15px;float:left;">Vendor City/ST/Zip:</label>
+                        <div class="col-md-8" style="position: relative;min-height: 1px;padding-right: 15px;padding-left: 15px;width:66.66666667%;float:left;">
+                            @Html.TextBoxFor(model => model.CityState, new { @class = "form-control", style = "width:100%" })
+                        </div>
+                    </div>
+
+                    <div class="row form-group" style="margin-bottom:10px;display:flex;">
+                        <label class="control-label col-md-3 text-left" style="font-weight:700;width:25%;text-align:left;padding-left:15px;padding-right:15px;float:left;">Vendor Country (if not USA):</label>
+                        <div class="col-md-8" style="position: relative;min-height: 1px;padding-right: 15px;padding-left: 15px;width:66.66666667%;float:left;">
+                            @Html.TextBoxFor(model => model.Country, new { @class = "form-control", style = "width:100%" })
+                        </div>
+                    </div>
+
+                    <div class="row form-group" style="margin-bottom:10px;display:flex;">
+                        <label class="control-label col-md-3 text-left" style="font-weight:700;width:25%;text-align:left;padding-left:15px;padding-right:15px;float:left;">Vendor Phone #:</label>
+                        <div class="col-md-8" style="position: relative;min-height: 1px;padding-right: 15px;padding-left: 15px;width:66.66666667%;float:left;">
+                            @Html.TextBoxFor(model => model.Phone, new { @class = "form-control", style = "width:100%" })
+                            @*<input type="text" class="form-control" style="width:100%"/>*@
+                        </div>
+                    </div>
+
+                    <div class="row form-group" style="margin-bottom:10px;display:flex;">
+                        <label class="control-label col-md-3 text-left" style="font-weight:700;width:25%;text-align:left;padding-left:15px;padding-right:15px;float:left;">Contact Name:</label>
+                        <div class="col-md-8" style="position: relative;min-height: 1px;padding-right: 15px;padding-left: 15px;width:66.66666667%;float:left;">
+                            @Html.TextBoxFor(model => model.ContactName, new { @class = "form-control", style = "width:100%" })
+                        </div>
+                    </div>
+
+                    <div class="row form-group" style="margin-bottom:10px;display:flex;">
+                        <label class="control-label col-md-3 text-left" style="font-weight:700;width:25%;text-align:left;padding-left:15px;padding-right:15px;float:left;">Bank Name:</label>
+                        <div class="col-md-8" style="position: relative;min-height: 1px;padding-right: 15px;padding-left: 15px;width:66.66666667%;float:left;">
+                            @Html.TextBoxFor(model => model.BankName, new { @class = "form-control", style = "width:100%" })
+                        </div>
+                    </div>
+
+                    <div class="row form-group" style="margin-bottom:10px;display:flex;">
+                        <label class="control-label col-md-3 text-left" style="font-weight:700;width:25%;text-align:left;padding-left:15px;padding-right:15px;float:left;">Bank Address/City/ST/Zip:</label>
+                        <div class="col-md-8" style="position: relative;min-height: 1px;padding-right: 15px;padding-left: 15px;width:66.66666667%;float:left;">
+                            @Html.TextBoxFor(model => model.BankAddress, new { @class = "form-control", style = "width:100%" })
+                        </div>
+                    </div>
+
+                    <div class="row form-group" style="margin-bottom:10px;display:flex;">
+                        <label class="control-label col-md-3 text-left" style="font-weight:700;width:25%;text-align:left;padding-left:15px;padding-right:15px;float:left;">Bank Phone number:</label>
+                        <div class="col-md-8" style="position: relative;min-height: 1px;padding-right: 15px;padding-left: 15px;width:66.66666667%;float:left;">
+                            @Html.TextBoxFor(model => model.BankPhoneNumber, new { @class = "form-control", style = "width:100%" })
+                        </div>
+                    </div>
+
+                    <div class="row form-group" style="margin-bottom:10px;display:flex;">
+                        <label class="control-label col-md-3 text-left" style="font-weight:700;width:25%;text-align:left;padding-left:15px;padding-right:15px;float:left;">Bank Account #:</label>
+                        <div class="col-md-8" style="position: relative;min-height: 1px;padding-right: 15px;padding-left: 15px;width:66.66666667%;float:left;">
+                            @Html.TextBoxFor(model => model.BankAccount, new { @class = "form-control", style = "width:100%" })
+                        </div>
+                    </div>
+
+                    <div class="row form-group" style="margin-bottom:10px;display:flex;">
+                        <label class="control-label col-md-3 text-left" style="font-weight:700;width:25%;text-align:left;padding-left:15px;padding-right:15px;float:left;">Bank Routing #:</label>
+                        <div class="col-md-8" style="position: relative;min-height: 1px;padding-right: 15px;padding-left: 15px;width:66.66666667%;float:left;">
+                            @Html.TextBoxFor(model => model.BankRouting, new { @class = "form-control", style = "width:100%" })
+                        </div>
+                    </div>
+                    <div class="row form-group" style="margin-bottom:10px;display:flex;">
+                        <label class="control-label col-md-3 text-left" style="font-weight:700;width:25%;text-align:left;padding-left:15px;padding-right:15px;float:left;">Name as it appears on Bank Account:</label>
+                        <div class="col-md-8" style="position: relative;min-height: 1px;padding-right: 15px;padding-left: 15px;width:66.66666667%;float:left;">
+                            @Html.TextBoxFor(model => model.NameInBank, new { @class = "form-control", style = "width:100%" })
+                        </div>
+                    </div>
+                    <div class="row form-group" style="margin-bottom:20px;">
+                        <label class="control-label col-md-3 text-left" style="font-weight:700;width:25%;padding-left:15px;padding-right:15px;float:left;">Email address to confirm  transfer of funds:</label>
+                        <div class="col-md-8" style="position: relative;min-height:1px;padding-right: 15px;padding-left: 15px;width:66.66666667%;float:left;height:80px;">
+                            @Html.TextBoxFor(model => model.Email, new { @class = "form-control", style = "width:100%" })
+                        </div>
+                    </div>  
+
+                    <div style="padding-top:30px;">
+                        <div class="row" style="margin-bottom:10px;padding-top:50px;">
+                            <div class="col-md-6" style="width:45%;padding-left:15px;padding-right:15px;">
+                                <label style="font-weight:700;float:left;width:25%;">Printed Name</label>
+                                @Html.TextBoxFor(model => model.PrintedName, new { @class = "form-control", style = "width:50%;float:left;" })
+                            </div>
+                            <div class="col-md-6" style="width:50%;padding-left:15px;padding-right:15px;float:left;">
+                                <label style="font-weight:700;float:left;width:30%">Approval Signature</label>
+                                <input type="text" style="width:50%;float:left;" />
+                            </div>
+                        </div>
+                    </div>
+                    @*<div class="row">
+                       <label>Printed Name</label>@Html.TextBoxFor(model => model.PrintedName)
+                        <label>Approval Signature</label><input type="text"/>
+                    </div>*@
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+

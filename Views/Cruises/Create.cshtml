@@ -1,0 +1,65 @@
+﻿@model CruiseEntertainmentManagnmentSystem.Models.Cruises
+
+@{
+    ViewBag.Title = "Ship Create";
+}
+
+@*<h2>@ViewBag.Title.</h2>*@
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <div class="row">
+            <div class="row">
+                <h4 class="page-heading text-center">Ships</h4>
+              
+            </div>
+            <br />
+            <div class="row">
+                @*<div class="col-md-1"></div>*@
+                <div class="col-md-5">
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Name)
+                    </div>
+                    <div class="editol-field">
+                        @Html.EditorFor(model => model.Name)
+                        @Html.ValidationMessageFor(model => model.Name)
+                    </div>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.ShipBrand)
+                    </div>
+                    <div class="editol-field">
+                        @Html.EditorFor(model => model.ShipBrand)
+                        @Html.ValidationMessageFor(model => model.ShipBrand)
+                    </div>
+
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.AccountNumber)
+                    </div>
+                    <div class="editol-field">
+                        @Html.EditorFor(model => model.AccountNumber)
+                        @Html.ValidationMessageFor(model => model.AccountNumber)
+                    </div>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Description)
+                    </div>
+                    <div class="editol-field">
+                        @Html.EditorFor(model => model.Description)
+                        @Html.ValidationMessageFor(model => model.Description)
+                    </div>
+                    <div>
+                        <br />
+                        <div>
+                            <input type="submit" value="Create" class="btn" />
+                            <a href="#" onclick="goToPrevious('@ViewBag.ReturnUrl')">cancel</a>
+                            @*@Html.ActionLink("Back To list", "Index")*@
+                        </div>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+            </div>
+    </div>
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

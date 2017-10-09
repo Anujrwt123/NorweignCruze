@@ -1,0 +1,53 @@
+﻿@model IEnumerable<CruiseEntertainmentManagnmentSystem.Models.ContactList>
+
+@using GridMvc.Html
+
+@Html.Grid(Model).Columns(columns =>
+         {
+             columns.Add()
+    .Encoded(false)
+    .Sanitized(false)
+    .SetWidth(30)
+    .Css("hidden-xs") //hide on phones
+    .RenderValueAs(c =>
+     @<div id="balloon" class="balloonClass">
+         <b>
+             <a href="#" onclick="goToCreate('/Home/ContactEdit?ID=@c.ID')" class="modal_link">Edit</a>
+             @*@Html.ActionLink("Edit", "Edit", "Contractors", new { id = c.ID }, new { @class = "modal_link" })*@
+         </b>
+     </div>);
+         columns.Add()
+         .Encoded(false)
+         .Sanitized(false)
+         .SetWidth(30)
+         .Css("hidden-xs") //hide on phones
+         .RenderValueAs(c =>
+        @<div id="balloon" class="balloonClass">
+            <b>
+                <a href="#" onclick="finalDelete('','@c.Name','/Home/ContactDelete?ID=@c.ID')">Delete</a>
+                @*<a href="#" onclick="gotoCreate('/Contractors/Edit?ID='@c.ID)" class="modal_link">Delete</a>*@
+                @*@Html.ActionLink("Edit", "Edit", "Contractors", new { id = c.ID }, new { @class = "modal_link" })*@
+            </b>
+        </div>);
+         columns.Add(c => c.Name).Titled("Name");
+         columns.Add(c => c.Position).Titled("Position");
+         // columns.Add(c => c.Description).Titled("Description");
+         columns.Add(c => c.Phone).Titled("Phone");
+         columns.Add(c => c.Email).Titled("Email");
+         columns.Add(c => c.Active)
+.Encoded(false)
+.Sanitized(false)
+.SetWidth(30)
+.Css("hidden-xs") //hide on phones
+.RenderValueAs(c =>
+    @<div id="balloon" class="balloonClass">
+        <b>
+            <input type="checkbox" checked="@c.Active" />
+        </b>
+    </div>);
+            
+             //columns.Add(c => c.PGroup).Titled("");
+         }).WithPaging(10).Sortable().Filterable().WithMultipleFilters()
+
+
+

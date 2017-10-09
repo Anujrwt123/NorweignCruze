@@ -1,0 +1,56 @@
+﻿@model CruiseEntertainmentManagnmentSystem.Models.CabinCategories
+
+@{
+    ViewBag.Title = "Category Edit";
+}
+
+@*<h2>@ViewBag.Title.</h2>*@
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <div class="row">
+        <div class="row">
+            <h4 class="page-heading text-center">Cabin Categories</h4>
+        </div>
+
+            <br />
+            <div class="row">
+                @*<div class="col-md-1"></div>*@
+                <div class="col-md-5">
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.CategoryName)
+
+                    </div>
+                    <div class="editol-field">
+                        @Html.TextBoxFor(model => model.CategoryName, new  {@class="half" })
+                        @Html.ValidationMessageFor(model => model.CategoryName)
+                    </div>
+
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Description)
+                    </div>
+                    <div class="editol-field">
+                        @Html.TextBoxFor(model => model.Description, new { @class = "half" })
+                        @Html.ValidationMessageFor(model => model.Description)
+                    </div>
+
+                    <div>
+
+                        <br />
+                        <div>
+                            <input type="submit" value="Save" class="btn" />
+                            <a href="#" onclick="goToPrevious('@ViewBag.ReturnUrl')">cancel</a>
+                        </div>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+            </div>
+
+
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
